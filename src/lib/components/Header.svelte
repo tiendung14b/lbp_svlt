@@ -1,6 +1,12 @@
 <script>
 	export let isHome = false;
-	export let stuck = true;
+	let clientOffset;
+	$: stuck = (() => {
+		if (clientOffset > 100) return true;
+		if (clientOffset < 70) return false;
+		return stuck;
+	})();
+	$: console.log(stuck);
 	// import
 	import { cn } from '$lib/modules/cn.js';
 	import '../../app.css';
@@ -9,11 +15,13 @@
 	import UILangSwitch from '$lib/ui/UILangSwitch.svelte';
 </script>
 
+<svelte:window bind:scrollY={clientOffset} />
+
 <header
 	class={cn(
-		isHome ? 'absolute left-[50vw] -translate-x-[50%]' : 'sticky',
-		'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto',
-		isHome && !stuck ? 'max-w-[1170px] mt-8 absolute z-10' : ''
+		isHome && !stuck ? 'absolute left-[50vw] -translate-x-[50%]' : 'sticky',
+		isHome && !stuck ? 'max-w-[1170px] mt-8 absolute z-10' : '',
+		'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto'
 	)}
 >
 	<div class={cn('h-[2px] bg-[#FB342E]', 'max-w-[100vw]')}></div>

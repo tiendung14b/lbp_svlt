@@ -2,6 +2,7 @@
 <script>
 	// import
 	import UILangSwitch from '$lib/ui/UILangSwitch.svelte';
+	import PageMarker from '../lib/components/PageMarker.svelte';
 	import { theme } from '$lib/stores/theme.js';
 	import '../app.css';
 	import { goto } from '$app/navigation';
@@ -34,13 +35,6 @@
 		numPage = (numPage + 1) % slideData.data.length;
 	}, 4000);
 	// handle event method
-	const handleChangeSlide = (num) => {
-		numPage = num % slideData.data.length;
-		clearInterval(intervalSlide);
-		intervalSlide = setInterval(() => {
-			numPage = (numPage + 1) % slideData.data.length;
-		}, 4000);
-	};
 	onDestroy(() => {
 		clearInterval(intervalSlide);
 	});
@@ -61,20 +55,7 @@
 			>Đến trang chủ</button
 		>
 	</div>
-	<!-- check mark -->
-	<div class="flex flex-row gap-3">
-		{#each Array.from(Array(slideData.data.length).keys()) as item}
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div
-				on:click={handleChangeSlide.bind(null, item)}
-				class={cn(
-					'w-[40px] h-[5px] transition-all duration-300',
-					item == numPage ? 'bg-[#FB342E]' : 'bg-[#0002] hover:bg-[#0005]'
-				)}
-			></div>
-		{/each}
-	</div>
+	<PageMarker len={slideData.data.length} bind:numPage {intervalSlide} />
 	{#key numPage}
 		<div class="absolute -z-10 object-cover top-0" transition:slide={{ duration: 1000, axis: 'x' }}>
 			<img
