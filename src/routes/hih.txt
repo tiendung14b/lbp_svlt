@@ -1,0 +1,17 @@
+<div class="absolute -z-10 bg-white bg-inherit w-[100%] h-[100%] top-[8%] -left-[14%]">
+  <div class="h-[100%] w-[34.27%] -rotate-45 flex flex-col gap-[5px] absolute top-0">
+    <div class="h-[34.27%] self-end">
+      <div class="h-[100%] aspect-square bg-[#834834] rounded-[7%]"></div>
+    </div>
+    <div class="flex gap-[5px] h-[34.27%] *:aspect-square *:rounded-[7%]">
+      <div class="h-[100%] bg-slate-300"></div>
+      <div class="h-[100%] bg-[#275947] overflow-hidden">
+        <img
+          src={intro1}
+          class="object-cover -translate-x-[10%] -translate-y-[10%] min-w-[350px] rotate-45"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
