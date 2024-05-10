@@ -15,11 +15,9 @@
 	// init method
 	const handleClick = () => {
 		expand = !expand;
-		console.log(expand);
 	};
 	const handleChoose = (lang) => {
 		currLang = lang;
-		console.log(lang);
 		$language = currLang;
 		expand = !expand;
 	};

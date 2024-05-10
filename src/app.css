@@ -10,6 +10,8 @@
 	background-position: center center;
 	background-repeat: no-repeat;
 	object-position: center center;
+	font-family: 'Lexgend', sans-serif;
+	scroll-behavior: smooth;
 }
 
 *:focus,
@@ -24,7 +26,7 @@
  * 1.375 or 1.625, for example, and you may not catch it.
  */
 html {
-	line-height: 1;
+	line-height: normal;
 }
 
 body {
