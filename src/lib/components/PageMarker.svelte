@@ -1,7 +1,7 @@
 <script>
 	export let len = 0;
 	export let numPage = 0;
-
+	export let intervalSlide = null;
 	export let onChange;
 
 	import { cn } from '$lib/modules/cn.js';
@@ -9,6 +9,13 @@
 
 	const handleChangeSlide = (num) => {
 		numPage = num % len;
+		// if (intervalSlide) {
+		// 	clearInterval(intervalSlide);
+		// 	intervalSlide = setInterval(() => {
+		// 		numPage = (numPage + 1) % len;
+		// 		if (onChange) onChange();
+		// 	}, 4000);
+		// }
 	};
 </script>
 
