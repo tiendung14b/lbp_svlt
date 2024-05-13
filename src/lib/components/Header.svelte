@@ -32,7 +32,12 @@
 		)}
 	>
 		<div class={cn('h-[2px] bg-[#FB342E]', 'max-w-[100vw]')}></div>
-		<div class=" flex flex-row justify-between items-center max-w-[1170px] px-[20px] box-border">
+		<div
+			class={cn(
+				' flex flex-row justify-between items-center px-[20px] box-border',
+				stuck && 'px-[113px]'
+			)}
+		>
 			<img class="w-[44px]" src={logo} alt="" />
 			<ul class="flex flex-row *:px-[18px] *:py-[28px] *:text-[13px] *:font-[600]">
 				<li class="bg-[#FB342E] text-white">Trang chủ</li>

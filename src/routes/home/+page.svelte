@@ -32,6 +32,8 @@
 	}, 8000);
 	let onChangeHeroImg;
 
+	let projects = [{ image: hero00, title: 'shit', addr: 'i dont care' }];
+
 	onMount(() => {
 		onChangeHeroImg = () => {
 			document.querySelector('#heroCtn').scroll({ left: currHeroImg * windowWidth });
@@ -110,7 +112,7 @@
 	>
 		<img src={aboutVid} alt="about vid" class="object-cover w-[100vw]" />
 		<div
-			class="flex flex-col justify-between px-[60px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px]"
+			class="flex flex-col justify-between px-[60px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url($lib/assets/aboutIsu.png)]"
 		>
 			<h2 class="text-[#212163] text-[32px] font-[600]">Về chúng tôi</h2>
 			<p class="text-[14px] font-[400] text-[#353945] text-justify">
@@ -122,10 +124,10 @@
 				tổng thầu chính cho các dự án nhà xưởng công nghiệp lớn.
 			</p>
 			<div
-				class="flex flex-row justify-between *:text-white *:p-4 min-[500px]:*:py-5 min-[500px]:*:px-10 *:text-[16px] *:font-[600] *:uppercase"
+				class="flex flex-col gap-2 text-center min-[500px]:flex-row justify-between *:bg-[#35368B] *:text-white *:p-4 min-[500px]:*:py-5 min-[500px]:*:px-10 *:text-[16px] *:font-[600] *:uppercase"
 			>
-				<button class="bg-[#35368B]">TẢI PROFILE</button>
-				<button class="bg-[#FB342E]">TÌM HIỂU THÊM</button>
+				<button class="hover:bg-[#FB342E]">TẢI PROFILE</button>
+				<button class="hover:bg-[#FB342E]">TÌM HIỂU THÊM</button>
 			</div>
 		</div>
 	</div>
@@ -145,19 +147,57 @@
 		{/each}
 	</div>
 	<!-- === activities section -->
-	<div class="bg-[#212163] px-[30px] py-[36px]">
-		<div>
+	<div
+		class="flex flex-col gap-20 bg-[#212163] px-[60px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
+	>
+		<div class="flex flex-col gap-4 md:flex-row md:justify-between">
 			<h2 class="text-[40px] font-[600] text-white">
 				Lĩnh Vực <span class="text-[#FB342E]">Hoạt Động</span>
 			</h2>
-			<div>
-				<span>Xem thêm</span>
+			<div class="flex items-center gap-6">
+				<span class="text-[20px] font-[600] text-white">Xem thêm</span>
 				<img src={iviewmore} alt="view more" />
 			</div>
 		</div>
-		<div>
-			<div><img src={act01} alt="" /></div>
-			<div><img src={act02} alt="" /></div>
+		<div class="grid grid-cols-1 lg:grid-cols-2 *:h-[370px] gap-7">
+			{#each [{ image: act01, desc: `Tổng thầu Design & Build Xây dựng & Cơ điện` }, { image: act02, desc: `Tổng thầu thi công xây dựng` }] as act, idx}
+				<div class="relative bg-[#35368B] hover:bg-[#FB342E]">
+					<div class="absolute z-10 top-5 left-5 min-[500px]:top-12 min-[500px]:left-12">
+						<div class="flex items-center gap-2">
+							<div class="w-[24px] h-1 bg-white"></div>
+							<span class="text-[20px] font-[600] text-white">{'0' + (idx + 1) + '.'}</span>
+						</div>
+						<p
+							class="text-[20px] min-[500px]:text-[26px] font-[600] underline text-white max-w-[200px] min-[500px]:max-w-[247px]"
+						>
+							{act.desc}
+						</p>
+					</div>
+					<img src={act.image} alt="" class="absolute h-[100%] right-0" />
+				</div>
+			{/each}
 		</div>
+	</div>
+	<!-- === projects section ==== -->
+	<div>
+		<!-- processing project -->
+		<div>
+			<div>
+				<div>
+					<strong>Dự án</strong>
+					<strong>Đang thực hiện</strong>
+				</div>
+				<div>
+					<span>Xem thêm</span>
+					<img src={iviewmore} alt="view more" />
+				</div>
+			</div>
+			<div>
+				<img src="" alt="" />
+			</div>
+		</div>
+		<!-- finished project -->
+
+		<div></div>
 	</div>
 </div>
