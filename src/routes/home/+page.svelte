@@ -18,6 +18,11 @@
 	import stat04 from '$lib/assets/stat04.png';
 	import act01 from '$lib/assets/activity01.png';
 	import act02 from '$lib/assets/activity02.png';
+	import careerImg from '$lib/assets/career.png';
+	import careerDeco from '$lib/assets/career_deco.svg';
+	import openQuote from '$lib/assets/openQuote.svg';
+	import closeQuote from '$lib/assets/closeQuote.svg';
+	import viewDetails from '$lib/assets/arrow01.svg';
 	import { cn } from '$lib/modules/cn.js';
 	import { register } from 'swiper/element/bundle';
 
@@ -41,6 +46,41 @@
 		{ image: hero00, title: 'shit', addr: 'i dont care' },
 		{ image: hero01, title: 'sheet', addr: 'google docs excel' },
 		{ image: hero02, title: 'sheep', addr: 'farm' }
+	];
+
+	let news = [
+		{
+			image: hero00,
+			genre: 'Tin nội bộ',
+			title: 'Enco tổ chức chương trình du lịch hè 2022',
+			briefDesc:
+				'Để tăng cường sự kết nối, giao lưu giữa các bộ phận, các phòng ban và các thành viên trong Công ty, hàng năm ENCO đều tổ chức các chương trình du lịch hè kết hợp team building cho các CBNV.',
+			date: new Date('16/10/2022')
+		},
+		{
+			image: hero01,
+			genre: 'Tin nội bộ',
+			title: 'lorem jalsdkfjaajs;dkfj',
+			briefDesc:
+				'Ngày 13/04/2022, ENCO cùng chủ đầu tư Công ty TNHH Công nghệ Bao bì xanh Hiệp Phú đã tổ chức Lễ khởi công dự án xây dựng nhà máy Công nghệ Bao bì xanh Hiệp Phú tại TP. Bắc Ninh.',
+			date: new Date('16/10/2022')
+		},
+		{
+			image: hero02,
+			genre: 'Tin nội bộ',
+			title: 'Lễ khởi công dự án nhà máy công nghệ bao bì xanh Hiệp Phú',
+			briefDesc:
+				'Ngày 13/04/2022, ENCO cùng chủ đầu tư Công ty TNHH Công nghệ Bao bì xanh Hiệp Phú đã tổ chức Lễ khởi công dự án xây dựng nhà máy Công nghệ Bao bì xanh Hiệp Phú tại TP. Bắc Ninh.',
+			date: Date.now().toLocaleString()
+		},
+		{
+			image: aboutVid,
+			genre: 'Tin nội bộ',
+			title: 'Lễ khởi công dự án nhà máy công nghệ bao bì xanh Hiệp Phú',
+			briefDesc:
+				'Ngày 13/04/2022, ENCO cùng chủ đầu tư Công ty TNHH Công nghệ Bao bì xanh Hiệp Phú đã tổ chức Lễ khởi công dự án xây dựng nhà máy Công nghệ Bao bì xanh Hiệp Phú tại TP. Bắc Ninh.',
+			date: new Date('16/10/2022')
+		}
 	];
 
 	onMount(() => {
@@ -122,7 +162,7 @@
 	>
 		<img src={aboutVid} alt="about vid" class="object-cover w-[100vw]" />
 		<div
-			class="flex flex-col justify-between px-[60px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url($lib/assets/aboutIsu.png)] bg-cover"
+			class="flex flex-col justify-between px-[20px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url($lib/assets/aboutIsu.png)] bg-cover"
 		>
 			<h2 class="text-[#212163] text-[32px] font-[600]">Về chúng tôi</h2>
 			<p class="max-w-[720px] text-[14px] font-[400] text-[#353945] text-justify">
@@ -158,7 +198,7 @@
 	</div>
 	<!-- === activities section -->
 	<div
-		class="flex flex-col gap-20 bg-[#212163] px-[40px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
+		class="flex flex-col gap-20 bg-[#212163] px-[20px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
 	>
 		<div class="flex flex-col gap-4 md:flex-row md:justify-between">
 			<h2 class="text-[40px] font-[600] text-white">
@@ -192,7 +232,7 @@
 	</div>
 	<!-- === projects section ==== -->
 	<div
-		class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#F0F3F6] p-[40px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
+		class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#F0F3F6] p-[20px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
 	>
 		<!-- processing project -->
 		<div class="relative">
@@ -275,6 +315,91 @@
 						</div>
 					</div>
 				{/each}
+			</div>
+		</div>
+	</div>
+	<!-- === news section ==== -->
+	<div class="p-[20px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]">
+		<div class="flex flex-col sm:flex-row gap-3 justify-between">
+			<div class="*:text-[32px] *:font-[600]">
+				<strong class="text-[#212163]">Tin tức <span class="text-[#FB342E]">nổi bật</span></strong>
+			</div>
+			<div class="flex items-center gap-6">
+				<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
+				<img src={iviewmore} alt="view more" />
+			</div>
+		</div>
+		<div class="grid grid-cols-1 gap-3 md:gap-0 md:grid-cols-2 lg:grid-cols-4 mt-8">
+			{#each news as newsItem, idx}
+				<div
+					class={cn('md:p-[16px] lg:border-t-[1px]', idx < news.length - 1 && 'lg:border-r-[1px]')}
+				>
+					<div class="relative">
+						<img src={newsItem.image} alt="news" class="md:h-[200px] lg:h-[170px] object-cover" />
+						<div
+							class="absolute top-0 left-0 border-r-[21px] border-r-transparent border-t-[21px] border-t-white"
+						></div>
+						<div
+							class="absolute bottom-0 right-0 border-t-[21px] border-t-transparent border-r-[21px] border-r-white"
+						></div>
+					</div>
+					<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px]">
+						<span class="text-[#FB342E] text-[14px] font-[600]">{newsItem.genre}</span>
+						<strong class="text-[#141416] text-[20px] font-[600]">{newsItem.title}</strong>
+						<p class="text-[14px] font-[400]">{newsItem.briefDesc}</p>
+						<div class="flex justify-between items-center">
+							<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
+							<img src={viewDetails} alt="view details" />
+						</div>
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+	<!-- === career section -->
+	<div class="p-[20px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px] bg-[#F0F3F6]">
+		<div class="flex flex-col sm:flex-row gap-3 justify-between">
+			<div class="*:text-[32px] *:font-[600]">
+				<strong class="text-[#212163]"
+					>Cơ hội <span class="text-[#FB342E]">nghề nghiệp</span></strong
+				>
+			</div>
+			<div class="flex items-center gap-6">
+				<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
+				<img src={iviewmore} alt="view more" />
+			</div>
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-20 mt-8 justify-center">
+			<div class="flex items-center justify-center"><img src={careerImg} alt="" /></div>
+			<div class="flex flex-col gap-[112px]">
+				<div class="relative z-20">
+					<img src={openQuote} alt="" class="absolute top-0 left-0" />
+					<img src={closeQuote} alt="" class="absolute bottom-0 right-0" />
+					<img
+						src={careerDeco}
+						alt=""
+						class="absolute -z-10 left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%]"
+					/>
+					<p class="py-8 text-[28px] font-[600] text-center">
+						Mỗi con người đều có giá trị và tiềm năng riêng, và chúng tôi cam kết tạo ra một môi
+						trường làm việc thân thiện, động viên sự phát triển cá nhân và đề cao tinh thần đồng
+						đội.
+					</p>
+				</div>
+				<div class="flex flex-col lg:flex-row gap-8 justify-center items-center">
+					{#each [1, 2] as item, idx}
+						<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px] bg-white">
+							<span class="text-[#FB342E] text-[14px] font-[600]">Chuyên viên / Nhân viên</span>
+							<strong class="text-[#141416] text-[20px] font-[600]"
+								>[Tuyển dụng 2023] Nhân viên kinh doanh làm việc tại Hà Nội</strong
+							>
+							<div class="flex justify-between items-center">
+								<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
+								<img src={viewDetails} alt="view details" />
+							</div>
+						</div>
+					{/each}
+				</div>
 			</div>
 		</div>
 	</div>
