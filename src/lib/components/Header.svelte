@@ -23,19 +23,20 @@
 
 <svelte:window bind:scrollY={clientOffset} bind:innerWidth={windowWidth} />
 
-{#if windowWidth > 970}
+{#if windowWidth > 1180}
 	<header
 		class={cn(
-			isHome && !stuck ? 'absolute left-[50vw] -translate-x-[50%]' : 'fixed',
-			isHome && !stuck ? 'max-w-[1170px] mt-8' : '',
-			'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto z-10'
+			isHome && !stuck
+				? 'absolute left-[50vw] -translate-x-[50%] w-[90%] xl:max-w-[1170px] mt-8'
+				: 'fixed',
+			'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto z-20'
 		)}
 	>
 		<div class={cn('h-[2px] bg-[#FB342E]', 'max-w-[100vw]')}></div>
 		<div
 			class={cn(
-				' flex flex-row justify-between items-center px-[20px] box-border',
-				stuck && 'px-[113px]'
+				' flex flex-row justify-between items-center box-border',
+				stuck ? 'px-[113px]' : 'px-[20px]'
 			)}
 		>
 			<img class="w-[44px]" src={logo} alt="" />
@@ -56,7 +57,7 @@
 	</header>
 {/if}
 
-{#if windowWidth <= 970}
+{#if windowWidth <= 1180}
 	<!-- BEFORE OPEN -->
 	<button
 		class={cn('fixed z-10 top-[10px] right-4', isOpen && 'hidden')}
@@ -69,7 +70,7 @@
 	<!-- AFTER OPEN -->
 	<div
 		class={cn(
-			'fixed right-0 z-10 flex flex-col w-[80vw] h-[100vh] ml-auto gap-2 bg-slate-100',
+			'fixed right-0 z-20 flex flex-col w-[80vw] h-[100vh] ml-auto gap-2 bg-slate-100',
 			!isOpen && 'hidden'
 		)}
 	>

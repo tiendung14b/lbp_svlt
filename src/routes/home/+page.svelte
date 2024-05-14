@@ -5,12 +5,13 @@
 	// import image
 	import iviewmore_white from '$lib/assets/iviewmore_white.png';
 	import iviewmore from '$lib/assets/iviewmore.png';
+	import iaddr from '$lib/assets/iaddr.svg';
 	import hero00 from '$lib/assets/hero00.png';
 	import hero01 from '$lib/assets/hero01.jpg';
 	import hero02 from '$lib/assets/hero02.jpg';
 	import aboutVid from '$lib/assets/aboutVid.gif';
 	import ismaller from '$lib/assets/smaller.svg';
-	import { onDestroy, onMount, tick } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import stat01 from '$lib/assets/stat01.png';
 	import stat02 from '$lib/assets/stat02.png';
 	import stat03 from '$lib/assets/stat03.png';
@@ -18,13 +19,16 @@
 	import act01 from '$lib/assets/activity01.png';
 	import act02 from '$lib/assets/activity02.png';
 	import { cn } from '$lib/modules/cn.js';
+	import { register } from 'swiper/element/bundle';
+
+	register();
 	////// var
 	//when client scroll down at specific point, header will spread
 	// this effect just appears in home, not another page
 	// list of hero image
 	let windowWidth;
-	const heroImgs = [hero00, hero01, hero02];
 
+	const heroImgs = [hero00, hero01, hero02];
 	let currHeroImg = 0;
 	let intervalHeroImg = setInterval(() => {
 		currHeroImg = (currHeroImg + 1) % heroImgs.length;
@@ -32,12 +36,18 @@
 	}, 8000);
 	let onChangeHeroImg;
 
-	let projects = [{ image: hero00, title: 'shit', addr: 'i dont care' }];
+	let projectSlider;
+	let projects = [
+		{ image: hero00, title: 'shit', addr: 'i dont care' },
+		{ image: hero01, title: 'sheet', addr: 'google docs excel' },
+		{ image: hero02, title: 'sheep', addr: 'farm' }
+	];
 
 	onMount(() => {
 		onChangeHeroImg = () => {
 			document.querySelector('#heroCtn').scroll({ left: currHeroImg * windowWidth });
 		};
+		projectSlider = document.querySelector('.project_slider').swiper;
 	});
 	onDestroy(() => {
 		clearInterval(intervalHeroImg);
@@ -46,12 +56,12 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<div class="relative">
+<div class="relative overflow-x-hidden">
 	<Header isHome={true} />
 	<!-- ========= hero section ========= -->
 	<div>
 		<div
-			class="*:max-w[300px] *:p-8 relative -z-1 flex gap-[27px] max-w-[1170px] mx-auto h-[100vh] flex-col justify-center *:text-white"
+			class="lg:px-[65px] min-[1250px]:px-[20px] xl:p-0 *:max-w[300px] *:px-8 relative -z-1 flex gap-[27px] max-w-[1170px] mx-auto h-[100vh] flex-col justify-center *:text-white"
 		>
 			<h1 class=" text-[32px] lg:p-0 lg:w-[549px] font-[600] text-white">
 				Doanh nghiệp uy tín hàng đầu trong lĩnh vực xây dựng nhà xưởng công nghiệp tại Việt Nam
@@ -90,7 +100,7 @@
 				currHeroImg = (currHeroImg - 1) % heroImgs.length;
 				onChangeHeroImg();
 			}}
-			class="lg:block hidden p-[0.5%] bg-slate-500 hover:bg-[#FB342E] transition-all absolute left-0 top-[50vh] -translate-y-[50%]"
+			class="ml-2 lg:block hidden p-[0.5%] bg-slate-500 hover:bg-[#FB342E] transition-all absolute left-0 top-[50vh] -translate-y-[50%]"
 		>
 			<img src={ismaller} alt="" />
 		</div>
@@ -108,14 +118,14 @@
 	</div>
 	<!-- === about section === -->
 	<div
-		class="box-border grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 *:h-[505px] min-[400px]:*:h-[405px]"
+		class="box-border grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 *:h-[505px] min-[500px]:*:h-[405px]"
 	>
 		<img src={aboutVid} alt="about vid" class="object-cover w-[100vw]" />
 		<div
-			class="flex flex-col justify-between px-[60px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url($lib/assets/aboutIsu.png)]"
+			class="flex flex-col justify-between px-[60px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url($lib/assets/aboutIsu.png)] bg-cover"
 		>
 			<h2 class="text-[#212163] text-[32px] font-[600]">Về chúng tôi</h2>
-			<p class="text-[14px] font-[400] text-[#353945] text-justify">
+			<p class="max-w-[720px] text-[14px] font-[400] text-[#353945] text-justify">
 				ENCO Industry là doanh nghiệp uy tín hàng đầu miền Bắc trong lĩnh vực xây dựng các công
 				trình nhà xưởng công nghiệp có vốn đầu tư nước ngoài. Thành lập từ năm 2011, ENCO đã trải
 				qua quá trình hoạt động và phát triển gần một thập kỷ với các dự án xây dựng hợp tác cùng
@@ -124,7 +134,7 @@
 				tổng thầu chính cho các dự án nhà xưởng công nghiệp lớn.
 			</p>
 			<div
-				class="flex flex-col gap-2 text-center min-[500px]:flex-row justify-between *:bg-[#35368B] *:text-white *:p-4 min-[500px]:*:py-5 min-[500px]:*:px-10 *:text-[16px] *:font-[600] *:uppercase"
+				class="max-w-[500px] flex flex-col gap-2 text-center min-[500px]:flex-row justify-between *:bg-[#35368B] *:text-white *:p-4 min-[500px]:*:py-5 min-[500px]:*:px-10 *:text-[16px] *:font-[600] *:uppercase"
 			>
 				<button class="hover:bg-[#FB342E]">TẢI PROFILE</button>
 				<button class="hover:bg-[#FB342E]">TÌM HIỂU THÊM</button>
@@ -148,7 +158,7 @@
 	</div>
 	<!-- === activities section -->
 	<div
-		class="flex flex-col gap-20 bg-[#212163] px-[60px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
+		class="flex flex-col gap-20 bg-[#212163] px-[40px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
 	>
 		<div class="flex flex-col gap-4 md:flex-row md:justify-between">
 			<h2 class="text-[40px] font-[600] text-white">
@@ -162,42 +172,110 @@
 		<div class="grid grid-cols-1 lg:grid-cols-2 *:h-[370px] gap-7">
 			{#each [{ image: act01, desc: `Tổng thầu Design & Build Xây dựng & Cơ điện` }, { image: act02, desc: `Tổng thầu thi công xây dựng` }] as act, idx}
 				<div class="relative bg-[#35368B] hover:bg-[#FB342E]">
-					<div class="absolute z-10 top-5 left-5 min-[500px]:top-12 min-[500px]:left-12">
+					<div
+						class="flex flex-col gap-5 absolute z-10 top-5 left-5 min-[500px]:top-12 min-[500px]:left-12"
+					>
 						<div class="flex items-center gap-2">
 							<div class="w-[24px] h-1 bg-white"></div>
 							<span class="text-[20px] font-[600] text-white">{'0' + (idx + 1) + '.'}</span>
 						</div>
 						<p
-							class="text-[20px] min-[500px]:text-[26px] font-[600] underline text-white max-w-[200px] min-[500px]:max-w-[247px]"
+							class="text-[26px] min-[500px]:text-[26px] font-[600] underline text-white max-w-[200px] min-[500px]:max-w-[240px]"
 						>
 							{act.desc}
 						</p>
 					</div>
-					<img src={act.image} alt="" class="absolute h-[100%] right-0" />
+					<img src={act.image} alt="" class="absolute h-[60%] bottom-0 right-0 md:h-[100%]" />
 				</div>
 			{/each}
 		</div>
 	</div>
 	<!-- === projects section ==== -->
-	<div>
+	<div
+		class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#F0F3F6] p-[40px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
+	>
 		<!-- processing project -->
-		<div>
-			<div>
-				<div>
-					<strong>Dự án</strong>
-					<strong>Đang thực hiện</strong>
+		<div class="relative">
+			<!-- click to view next image -->
+			<div class="opacity-[0] md:opacity-[1]">
+				<button
+					on:click={() => {
+						projectSlider.slidePrev();
+					}}
+					class="absolute z-30 top-[50%] -translate-y-[50%] hover:bg-[#FB342E] bg-slate-500 p-2"
+				>
+					<img src={ismaller} alt="" />
+				</button>
+				<button
+					on:click={() => {
+						projectSlider.slideNext();
+					}}
+					class="absolute z-30 top-[50%] -translate-y-[50%] right-0 hover:bg-[#FB342E] bg-slate-500 p-2 rotate-180"
+				>
+					<img src={ismaller} alt="" />
+				</button>
+			</div>
+			<div class="flex flex-col lg:flex-row gap-3 justify-between">
+				<div class="flex flex-col *:text-[32px] *:font-[600]">
+					<strong class="text-[#212163]">Dự án</strong>
+					<strong class="text-[#FB342E]">Đang thực hiện</strong>
 				</div>
-				<div>
-					<span>Xem thêm</span>
+				<div class="flex items-center gap-6">
+					<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
 					<img src={iviewmore} alt="view more" />
 				</div>
 			</div>
-			<div>
-				<img src="" alt="" />
-			</div>
+			<swiper-container
+				loop="true"
+				controller-control=".project_slider"
+				class="mt-8 project_slider"
+			>
+				{#each projects as project}
+					<swiper-slide>
+						<div class=" bg-white shadow-sm">
+							<div class="relative hover:*:opacity-[1]">
+								<img src={project.image} alt="hello" class=" aspect-video object-cover" />
+							</div>
+							<div class="flex flex-col gap-[11px] px-7 py-8">
+								<strong class="text-[32px] font-[600]">{project.title}</strong>
+								<div class="flex items-center gap-2">
+									<img src={iaddr} alt="" />
+									<p class="text-[20px] font-[400] text-[#353945]">{project.addr}</p>
+								</div>
+							</div>
+						</div>
+					</swiper-slide>
+				{/each}
+			</swiper-container>
 		</div>
 		<!-- finished project -->
-
-		<div></div>
+		<div class="">
+			<div class="flex flex-col lg:flex-row gap-3 justify-between">
+				<div class="flex flex-col *:text-[32px] *:font-[600]">
+					<strong class="text-[#212163]">Dự án</strong>
+					<strong class="text-[#FB342E]">Đã hoàn thành</strong>
+				</div>
+				<div class="flex items-center gap-6">
+					<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
+					<img src={iviewmore} alt="view more" />
+				</div>
+			</div>
+			<div class="mt-8 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4">
+				{#each [{ image: hero00, title: 'shit', addr: 'i dont care' }, { image: hero01, title: 'sheet', addr: 'google docs excel' }, { image: hero02, title: 'sheep', addr: 'farm' }, { image: aboutVid, title: 'tired', addr: 'life' }] as project}
+					<div class=" bg-white shadow-sm">
+						<div class="relative hover:*:opacity-[1]">
+							<img src={project.image} alt="hello" class=" aspect-video object-cover" />
+						</div>
+						<div class="flex flex-col gap-[11px] px-5 py-[7px]">
+							<strong class="text-[16px] font-[600]">{project.title}</strong>
+							<div class="flex items-center gap-2">
+								<img src={iaddr} alt="" />
+								<p class="text-[12px] font-[400] text-[#353945]">{project.addr}</p>
+							</div>
+						</div>
+					</div>
+				{/each}
+			</div>
+		</div>
 	</div>
 </div>

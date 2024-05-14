@@ -2,7 +2,10 @@ import { readable } from "svelte/store";
 
 // common css value 
 export const theme = readable({
-  color: {
+  
+}, (set) => {
+  set({
+    colors: {
     primary_color_red: "#FB342E",
     primary_color_blue: "#212163",
     second_color_blue: "#35368B"
@@ -10,7 +13,5 @@ export const theme = readable({
   text: {
     heading_1: "40px",
     heading_2: "32px"
-  }
-}, (set) => {
-  set("#FB342E")
+  }})
 })
