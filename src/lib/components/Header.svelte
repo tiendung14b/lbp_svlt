@@ -29,29 +29,28 @@
 			isHome && !stuck
 				? 'absolute left-[50vw] -translate-x-[50%] w-[90%] xl:max-w-[1170px] mt-8'
 				: 'fixed',
-			'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto z-20'
+			'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto z-50'
 		)}
 	>
 		<div class={cn('h-[2px] bg-[#FB342E]', 'max-w-[100vw]')}></div>
-		<div
-			class={cn(
-				' flex flex-row justify-between items-center box-border',
-				stuck ? 'px-[113px]' : 'px-[20px]'
-			)}
-		>
-			<img class="w-[44px]" src={logo} alt="" />
-			<ul class="flex flex-row *:px-[18px] *:py-[28px] *:text-[13px] *:font-[600]">
-				<li class="bg-[#FB342E] text-white">Trang chủ</li>
-				<li class="hover:bg-[#f44842] hover:text-white">Về chúng tôi</li>
-				<li class="hover:bg-[#f44842] hover:text-white">Lĩnh vực hoạt động</li>
-				<li class="hover:bg-[#f44842] hover:text-white">Dự án</li>
-				<li class="hover:bg-[#f44842] hover:text-white">Tin tức</li>
-				<li class="hover:bg-[#f44842] hover:text-white">Cơ hội nghề nghiệp</li>
-				<li class="hover:bg-[#f44842] hover:text-white">Liên hệ</li>
-			</ul>
-			<div class="flex gap-[10px]">
-				<img src={isearch} alt="search icon" />
-				<UILangSwitch />
+		<div class="content">
+			<div
+				class={cn(' flex flex-row justify-between items-center box-border', !stuck && 'px-[20px]')}
+			>
+				<img class="w-[44px]" src={logo} alt="" />
+				<ul class="flex flex-row *:px-[18px] *:py-[28px] *:text-[13px] *:font-[600]">
+					<li class="bg-[#FB342E] text-white">Trang chủ</li>
+					<li class="hover:bg-[#f44842] hover:text-white">Về chúng tôi</li>
+					<li class="hover:bg-[#f44842] hover:text-white">Lĩnh vực hoạt động</li>
+					<li class="hover:bg-[#f44842] hover:text-white">Dự án</li>
+					<li class="hover:bg-[#f44842] hover:text-white">Tin tức</li>
+					<li class="hover:bg-[#f44842] hover:text-white">Cơ hội nghề nghiệp</li>
+					<li class="hover:bg-[#f44842] hover:text-white">Liên hệ</li>
+				</ul>
+				<div class="flex gap-[10px]">
+					<img src={isearch} alt="search icon" />
+					<UILangSwitch />
+				</div>
 			</div>
 		</div>
 	</header>
@@ -60,7 +59,7 @@
 {#if windowWidth <= 1180}
 	<!-- BEFORE OPEN -->
 	<button
-		class={cn('fixed z-10 top-[10px] right-4', isOpen && 'hidden')}
+		class={cn('fixed z-50 top-[10px] right-4', isOpen && 'hidden')}
 		on:click={() => {
 			isOpen = !isOpen;
 		}}
@@ -70,7 +69,7 @@
 	<!-- AFTER OPEN -->
 	<div
 		class={cn(
-			'fixed right-0 z-20 flex flex-col w-[80vw] h-[100vh] ml-auto gap-2 bg-slate-100',
+			'fixed right-0 z-50 flex flex-col w-[80vw] h-[100vh] ml-auto gap-2 bg-slate-100',
 			!isOpen && 'hidden'
 		)}
 	>

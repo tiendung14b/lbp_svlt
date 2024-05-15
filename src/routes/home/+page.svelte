@@ -23,6 +23,15 @@
 	import openQuote from '$lib/assets/openQuote.svg';
 	import closeQuote from '$lib/assets/closeQuote.svg';
 	import viewDetails from '$lib/assets/arrow01.svg';
+	import client01 from '$lib/assets/client01.png';
+	import client02 from '$lib/assets/client02.png';
+	import client03 from '$lib/assets/client03.png';
+	import client04 from '$lib/assets/client04.png';
+	import client05 from '$lib/assets/client05.png';
+	import client06 from '$lib/assets/client06.png';
+	import client07 from '$lib/assets/client07.png';
+	import client08 from '$lib/assets/client08.png';
+	import client09 from '$lib/assets/client09.png';
 	import { cn } from '$lib/modules/cn.js';
 	import { register } from 'swiper/element/bundle';
 
@@ -81,6 +90,18 @@
 				'Ngày 13/04/2022, ENCO cùng chủ đầu tư Công ty TNHH Công nghệ Bao bì xanh Hiệp Phú đã tổ chức Lễ khởi công dự án xây dựng nhà máy Công nghệ Bao bì xanh Hiệp Phú tại TP. Bắc Ninh.',
 			date: new Date('16/10/2022')
 		}
+	];
+
+	let clients = [
+		client01,
+		client02,
+		client03,
+		client04,
+		client05,
+		client06,
+		client07,
+		client08,
+		client09
 	];
 
 	onMount(() => {
@@ -197,205 +218,120 @@
 		{/each}
 	</div>
 	<!-- === activities section -->
-	<div
-		class="flex flex-col gap-20 bg-[#212163] px-[20px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
-	>
-		<div class="flex flex-col gap-4 md:flex-row md:justify-between">
-			<h2 class="text-[40px] font-[600] text-white">
-				Lĩnh Vực <span class="text-[#FB342E]">Hoạt Động</span>
-			</h2>
-			<div class="flex items-center gap-6">
-				<span class="text-[20px] font-[600] text-white">Xem thêm</span>
-				<img src={iviewmore} alt="view more" />
-			</div>
-		</div>
-		<div class="grid grid-cols-1 lg:grid-cols-2 *:h-[370px] gap-7">
-			{#each [{ image: act01, desc: `Tổng thầu Design & Build Xây dựng & Cơ điện` }, { image: act02, desc: `Tổng thầu thi công xây dựng` }] as act, idx}
-				<div class="relative bg-[#35368B] hover:bg-[#FB342E]">
-					<div
-						class="flex flex-col gap-5 absolute z-10 top-5 left-5 min-[500px]:top-12 min-[500px]:left-12"
-					>
-						<div class="flex items-center gap-2">
-							<div class="w-[24px] h-1 bg-white"></div>
-							<span class="text-[20px] font-[600] text-white">{'0' + (idx + 1) + '.'}</span>
-						</div>
-						<p
-							class="text-[26px] min-[500px]:text-[26px] font-[600] underline text-white max-w-[200px] min-[500px]:max-w-[240px]"
-						>
-							{act.desc}
-						</p>
-					</div>
-					<img src={act.image} alt="" class="absolute h-[60%] bottom-0 right-0 md:h-[100%]" />
-				</div>
-			{/each}
-		</div>
-	</div>
-	<!-- === projects section ==== -->
-	<div
-		class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#F0F3F6] p-[20px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]"
-	>
-		<!-- processing project -->
-		<div class="relative">
-			<!-- click to view next image -->
-			<div class="opacity-[0] md:opacity-[1]">
-				<button
-					on:click={() => {
-						projectSlider.slidePrev();
-					}}
-					class="absolute z-30 top-[50%] -translate-y-[50%] hover:bg-[#FB342E] bg-slate-500 p-2"
-				>
-					<img src={ismaller} alt="" />
-				</button>
-				<button
-					on:click={() => {
-						projectSlider.slideNext();
-					}}
-					class="absolute z-30 top-[50%] -translate-y-[50%] right-0 hover:bg-[#FB342E] bg-slate-500 p-2 rotate-180"
-				>
-					<img src={ismaller} alt="" />
-				</button>
-			</div>
-			<div class="flex flex-col lg:flex-row gap-3 justify-between">
-				<div class="flex flex-col *:text-[32px] *:font-[600]">
-					<strong class="text-[#212163]">Dự án</strong>
-					<strong class="text-[#FB342E]">Đang thực hiện</strong>
-				</div>
+	<div class="flex flex-col gap-20 bg-[#212163] px-[20px] py-[66px]">
+		<div class="content">
+			<div class="flex flex-col gap-4 md:flex-row md:justify-between">
+				<h2 class="text-[40px] font-[600] text-white">
+					Lĩnh Vực <span class="text-[#FB342E]">Hoạt Động</span>
+				</h2>
 				<div class="flex items-center gap-6">
-					<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
+					<span class="text-[20px] font-[600] text-white">Xem thêm</span>
 					<img src={iviewmore} alt="view more" />
 				</div>
 			</div>
-			<swiper-container
-				loop="true"
-				controller-control=".project_slider"
-				class="mt-8 project_slider"
-			>
-				{#each projects as project}
-					<swiper-slide>
+			<div class="grid grid-cols-1 lg:grid-cols-2 *:h-[370px] gap-7 mt-8">
+				{#each [{ image: act01, desc: `Tổng thầu Design & Build Xây dựng & Cơ điện` }, { image: act02, desc: `Tổng thầu thi công xây dựng` }] as act, idx}
+					<div class="relative bg-[#35368B] hover:bg-[#FB342E]">
+						<div
+							class="flex flex-col gap-5 absolute z-10 top-5 left-5 min-[500px]:top-12 min-[500px]:left-12"
+						>
+							<div class="flex items-center gap-2">
+								<div class="w-[24px] h-1 bg-white"></div>
+								<span class="text-[20px] font-[600] text-white">{'0' + (idx + 1) + '.'}</span>
+							</div>
+							<p
+								class="text-[26px] min-[500px]:text-[26px] font-[600] underline text-white max-w-[200px] min-[500px]:max-w-[240px]"
+							>
+								{act.desc}
+							</p>
+						</div>
+						<img src={act.image} alt="" class="absolute h-[60%] bottom-0 right-0 md:h-[100%]" />
+					</div>
+				{/each}
+			</div>
+		</div>
+	</div>
+	<!-- === projects section ==== -->
+	<div class="flex bg-[#F0F3F6] px-[20px] py-[66px]">
+		<div class="grid gap-8 grid-cols-1 md:grid-cols-2 content">
+			<!-- processing project -->
+			<div class="relative">
+				<!-- click to view next image -->
+				<div class="opacity-[0] md:opacity-[1]">
+					<button
+						on:click={() => {
+							projectSlider.slidePrev();
+						}}
+						class="absolute z-30 top-[50%] -translate-y-[50%] hover:bg-[#FB342E] bg-slate-500 p-2"
+					>
+						<img src={ismaller} alt="" />
+					</button>
+					<button
+						on:click={() => {
+							projectSlider.slideNext();
+						}}
+						class="absolute z-30 top-[50%] -translate-y-[50%] right-0 hover:bg-[#FB342E] bg-slate-500 p-2 rotate-180"
+					>
+						<img src={ismaller} alt="" />
+					</button>
+				</div>
+				<div class="flex flex-col lg:flex-row gap-3 justify-between">
+					<div class="flex flex-col *:text-[32px] *:font-[600]">
+						<strong class="text-[#212163]">Dự án</strong>
+						<strong class="text-[#FB342E]">Đang thực hiện</strong>
+					</div>
+					<div class="flex items-center gap-6">
+						<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
+						<img src={iviewmore} alt="view more" />
+					</div>
+				</div>
+				<swiper-container
+					loop="true"
+					controller-control=".project_slider"
+					class="mt-8 project_slider"
+				>
+					{#each projects as project}
+						<swiper-slide>
+							<div class=" bg-white shadow-sm">
+								<div class="relative hover:*:opacity-[1]">
+									<img src={project.image} alt="hello" class=" aspect-video object-cover" />
+								</div>
+								<div class="flex flex-col gap-[11px] px-7 py-8">
+									<strong class="text-[32px] font-[600]">{project.title}</strong>
+									<div class="flex items-center gap-2">
+										<img src={iaddr} alt="" />
+										<p class="text-[20px] font-[400] text-[#353945]">{project.addr}</p>
+									</div>
+								</div>
+							</div>
+						</swiper-slide>
+					{/each}
+				</swiper-container>
+			</div>
+			<!-- finished project -->
+			<div class="">
+				<div class="flex flex-col lg:flex-row gap-3 justify-between">
+					<div class="flex flex-col *:text-[32px] *:font-[600]">
+						<strong class="text-[#212163]">Dự án</strong>
+						<strong class="text-[#FB342E]">Đã hoàn thành</strong>
+					</div>
+					<div class="flex items-center gap-6">
+						<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
+						<img src={iviewmore} alt="view more" />
+					</div>
+				</div>
+				<div class="mt-8 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4">
+					{#each [{ image: hero00, title: 'shit', addr: 'i dont care' }, { image: hero01, title: 'sheet', addr: 'google docs excel' }, { image: hero02, title: 'sheep', addr: 'farm' }, { image: aboutVid, title: 'tired', addr: 'life' }] as project}
 						<div class=" bg-white shadow-sm">
 							<div class="relative hover:*:opacity-[1]">
 								<img src={project.image} alt="hello" class=" aspect-video object-cover" />
 							</div>
-							<div class="flex flex-col gap-[11px] px-7 py-8">
-								<strong class="text-[32px] font-[600]">{project.title}</strong>
+							<div class="flex flex-col gap-[11px] px-5 py-[7px]">
+								<strong class="text-[16px] font-[600]">{project.title}</strong>
 								<div class="flex items-center gap-2">
 									<img src={iaddr} alt="" />
-									<p class="text-[20px] font-[400] text-[#353945]">{project.addr}</p>
+									<p class="text-[12px] font-[400] text-[#353945]">{project.addr}</p>
 								</div>
-							</div>
-						</div>
-					</swiper-slide>
-				{/each}
-			</swiper-container>
-		</div>
-		<!-- finished project -->
-		<div class="">
-			<div class="flex flex-col lg:flex-row gap-3 justify-between">
-				<div class="flex flex-col *:text-[32px] *:font-[600]">
-					<strong class="text-[#212163]">Dự án</strong>
-					<strong class="text-[#FB342E]">Đã hoàn thành</strong>
-				</div>
-				<div class="flex items-center gap-6">
-					<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
-					<img src={iviewmore} alt="view more" />
-				</div>
-			</div>
-			<div class="mt-8 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4">
-				{#each [{ image: hero00, title: 'shit', addr: 'i dont care' }, { image: hero01, title: 'sheet', addr: 'google docs excel' }, { image: hero02, title: 'sheep', addr: 'farm' }, { image: aboutVid, title: 'tired', addr: 'life' }] as project}
-					<div class=" bg-white shadow-sm">
-						<div class="relative hover:*:opacity-[1]">
-							<img src={project.image} alt="hello" class=" aspect-video object-cover" />
-						</div>
-						<div class="flex flex-col gap-[11px] px-5 py-[7px]">
-							<strong class="text-[16px] font-[600]">{project.title}</strong>
-							<div class="flex items-center gap-2">
-								<img src={iaddr} alt="" />
-								<p class="text-[12px] font-[400] text-[#353945]">{project.addr}</p>
-							</div>
-						</div>
-					</div>
-				{/each}
-			</div>
-		</div>
-	</div>
-	<!-- === news section ==== -->
-	<div class="p-[20px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px]">
-		<div class="flex flex-col sm:flex-row gap-3 justify-between">
-			<div class="*:text-[32px] *:font-[600]">
-				<strong class="text-[#212163]">Tin tức <span class="text-[#FB342E]">nổi bật</span></strong>
-			</div>
-			<div class="flex items-center gap-6">
-				<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
-				<img src={iviewmore} alt="view more" />
-			</div>
-		</div>
-		<div class="grid grid-cols-1 gap-3 md:gap-0 md:grid-cols-2 lg:grid-cols-4 mt-8">
-			{#each news as newsItem, idx}
-				<div
-					class={cn('md:p-[16px] lg:border-t-[1px]', idx < news.length - 1 && 'lg:border-r-[1px]')}
-				>
-					<div class="relative">
-						<img src={newsItem.image} alt="news" class="md:h-[200px] lg:h-[170px] object-cover" />
-						<div
-							class="absolute top-0 left-0 border-r-[21px] border-r-transparent border-t-[21px] border-t-white"
-						></div>
-						<div
-							class="absolute bottom-0 right-0 border-t-[21px] border-t-transparent border-r-[21px] border-r-white"
-						></div>
-					</div>
-					<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px]">
-						<span class="text-[#FB342E] text-[14px] font-[600]">{newsItem.genre}</span>
-						<strong class="text-[#141416] text-[20px] font-[600]">{newsItem.title}</strong>
-						<p class="text-[14px] font-[400]">{newsItem.briefDesc}</p>
-						<div class="flex justify-between items-center">
-							<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
-							<img src={viewDetails} alt="view details" />
-						</div>
-					</div>
-				</div>
-			{/each}
-		</div>
-	</div>
-	<!-- === career section -->
-	<div class="p-[20px] lg:px-[60px] min-[1200px]:px-[113px] py-[66px] bg-[#F0F3F6]">
-		<div class="flex flex-col sm:flex-row gap-3 justify-between">
-			<div class="*:text-[32px] *:font-[600]">
-				<strong class="text-[#212163]"
-					>Cơ hội <span class="text-[#FB342E]">nghề nghiệp</span></strong
-				>
-			</div>
-			<div class="flex items-center gap-6">
-				<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
-				<img src={iviewmore} alt="view more" />
-			</div>
-		</div>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-20 mt-8 justify-center">
-			<div class="flex items-center justify-center"><img src={careerImg} alt="" /></div>
-			<div class="flex flex-col gap-[112px]">
-				<div class="relative z-20">
-					<img src={openQuote} alt="" class="absolute top-0 left-0" />
-					<img src={closeQuote} alt="" class="absolute bottom-0 right-0" />
-					<img
-						src={careerDeco}
-						alt=""
-						class="absolute -z-10 left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%]"
-					/>
-					<p class="py-8 text-[28px] font-[600] text-center">
-						Mỗi con người đều có giá trị và tiềm năng riêng, và chúng tôi cam kết tạo ra một môi
-						trường làm việc thân thiện, động viên sự phát triển cá nhân và đề cao tinh thần đồng
-						đội.
-					</p>
-				</div>
-				<div class="flex flex-col lg:flex-row gap-8 justify-center items-center">
-					{#each [1, 2] as item, idx}
-						<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px] bg-white">
-							<span class="text-[#FB342E] text-[14px] font-[600]">Chuyên viên / Nhân viên</span>
-							<strong class="text-[#141416] text-[20px] font-[600]"
-								>[Tuyển dụng 2023] Nhân viên kinh doanh làm việc tại Hà Nội</strong
-							>
-							<div class="flex justify-between items-center">
-								<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
-								<img src={viewDetails} alt="view details" />
 							</div>
 						</div>
 					{/each}
@@ -403,4 +339,193 @@
 			</div>
 		</div>
 	</div>
+	<!-- === news section ==== -->
+	<div class="p-[20px] lg:px-[60px] py-[66px]">
+		<div class="content">
+			<div class="flex flex-col sm:flex-row gap-3 justify-between">
+				<div class="*:text-[32px] *:font-[600]">
+					<strong class="text-[#212163]">Tin tức <span class="text-[#FB342E]">nổi bật</span></strong
+					>
+				</div>
+				<div class="flex items-center gap-6">
+					<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
+					<img src={iviewmore} alt="view more" />
+				</div>
+			</div>
+			<div class="grid grid-cols-1 gap-3 md:gap-0 md:grid-cols-2 lg:grid-cols-4 mt-8">
+				{#each news as newsItem, idx}
+					<div
+						class={cn(
+							'md:p-[16px] lg:border-t-[1px]',
+							idx < news.length - 1 && 'lg:border-r-[1px]'
+						)}
+					>
+						<div class="relative">
+							<img src={newsItem.image} alt="news" class="md:h-[200px] lg:h-[170px] object-cover" />
+							<div
+								class="absolute top-0 left-0 border-r-[21px] border-r-transparent border-t-[21px] border-t-white"
+							></div>
+							<div
+								class="absolute bottom-0 right-0 border-t-[21px] border-t-transparent border-r-[21px] border-r-white"
+							></div>
+						</div>
+						<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px]">
+							<span class="text-[#FB342E] text-[14px] font-[600]">{newsItem.genre}</span>
+							<strong class="text-[#141416] text-[20px] font-[600]">{newsItem.title}</strong>
+							<p class="text-[14px] font-[400]">{newsItem.briefDesc}</p>
+							<div class="flex justify-between items-center">
+								<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
+								<img src={viewDetails} alt="view details" />
+							</div>
+						</div>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</div>
+	<!-- === career section === -->
+	<div class="p-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">
+		<div class="content">
+			<div class="flex flex-col sm:flex-row gap-3 justify-between">
+				<div class="*:text-[32px] *:font-[600]">
+					<strong class="text-[#212163]"
+						>Cơ hội <span class="text-[#FB342E]">nghề nghiệp</span></strong
+					>
+				</div>
+				<div class="flex items-center gap-6">
+					<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
+					<img src={iviewmore} alt="view more" />
+				</div>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-20 mt-8 justify-center">
+				<div class="flex items-center justify-center md:justify-start">
+					<img src={careerImg} alt="" />
+				</div>
+				<div class="flex flex-col gap-[112px]">
+					<div class="relative z-20">
+						<img src={openQuote} alt="" class="absolute top-0 left-0" />
+						<img src={closeQuote} alt="" class="absolute bottom-0 right-0" />
+						<img
+							src={careerDeco}
+							alt=""
+							class="absolute -z-10 left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%]"
+						/>
+						<p class="py-8 text-[28px] font-[600] text-center">
+							Mỗi con người đều có giá trị và tiềm năng riêng, và chúng tôi cam kết tạo ra một môi
+							trường làm việc thân thiện, động viên sự phát triển cá nhân và đề cao tinh thần đồng
+							đội.
+						</p>
+					</div>
+					<div class="flex flex-col lg:flex-row gap-8 justify-center items-center">
+						{#each [1, 2] as item, idx}
+							<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px] bg-white">
+								<span class="text-[#FB342E] text-[14px] font-[600]">Chuyên viên / Nhân viên</span>
+								<strong class="text-[#141416] text-[20px] font-[600]"
+									>[Tuyển dụng 2023] Nhân viên kinh doanh làm việc tại Hà Nội</strong
+								>
+								<div class="flex justify-between items-center">
+									<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
+									<img src={viewDetails} alt="view details" />
+								</div>
+							</div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- === client section === -->
+	<div class=" p-[20px] lg:px-[60px] py-[66px]">
+		<div class="content grid grid-cols-1 md:grid-cols-2 gap-28">
+			<!-- khach hang -->
+			<div>
+				<div class="flex flex-col min-[350px]:flex-row gap-2 justify-between">
+					<h2 class="text-[32px] font-[600] text-[#212163]">Khách hàng</h2>
+					<div class="flex gap-4">
+						<button
+							on:click={() => {
+								document.querySelector('.client_slider').swiper.slidePrev();
+							}}
+							class="bg-[#777E90] hover:bg-[#FB342E] size-[44px] flex justify-center items-center rounded-[50%] transition-all"
+						>
+							<img src={ismaller} alt="" />
+						</button>
+						<button
+							on:click={() => {
+								document.querySelector('.client_slider').swiper.slideNext();
+							}}
+							class="bg-[#777E90] hover:bg-[#FB342E] size-[44px] flex justify-center items-center rounded-[50%] transition-all rotate-180"
+						>
+							<img src={ismaller} alt="" />
+						</button>
+					</div>
+				</div>
+				<div>
+					<swiper-container
+						loop="true"
+						controller-control=".client_slider"
+						class="mt-8 client_slider"
+					>
+						{#each Array.from(Array(Math.ceil(clients.length / 6)).keys()) as idx}
+							<swiper-slide>
+								<div class="grid grid-cols-2 sm:grid-cols-3">
+									{#each clients.slice(idx, idx + 6) as client}
+										<div class="bg-white shadow-sm flex justify-center border-[1px] p-2">
+											<img src={client} alt="client" class="aspect-video object-cover" />
+										</div>
+									{/each}
+								</div>
+							</swiper-slide>
+						{/each}
+					</swiper-container>
+				</div>
+			</div>
+			<!-- doi tac -->
+			<div>
+				<div>
+					<div class="flex flex-col min-[350px]:flex-row gap-2 justify-between">
+						<h2 class="text-[32px] font-[600] text-[#212163]">Đối tác</h2>
+						<div class="flex gap-4">
+							<button
+								on:click={() => {
+									document.querySelector('.comp_slider').swiper.slidePrev();
+								}}
+								class="bg-[#777E90] hover:bg-[#FB342E] size-[44px] flex justify-center items-center rounded-[50%] transition-all"
+							>
+								<img src={ismaller} alt="" />
+							</button>
+							<button
+								on:click={() => {
+									document.querySelector('.comp_slider').swiper.slideNext();
+								}}
+								class="bg-[#777E90] hover:bg-[#FB342E] size-[44px] flex justify-center items-center rounded-[50%] transition-all rotate-180"
+							>
+								<img src={ismaller} alt="" />
+							</button>
+						</div>
+					</div>
+					<div>
+						<swiper-container
+							loop="true"
+							controller-control=".comp_slider"
+							class="mt-8 comp_slider"
+						>
+							{#each Array.from(Array(Math.ceil(clients.length / 6)).keys()) as idx}
+								<swiper-slide>
+									<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+										{#each clients.slice(idx, idx + 6) as client}
+											<div class="bg-white shadow-sm flex justify-center border-[1px] p-2">
+												<img src={client} alt="client" class="aspect-video object-cover" />
+											</div>
+										{/each}
+									</div>
+								</swiper-slide>
+							{/each}
+						</swiper-container>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- footer -->
 </div>
