@@ -3,6 +3,7 @@
 
 	import iclose from '$lib/assets/close.svg';
 	import iopen from '$lib/assets/iopen.png';
+	import { goto } from '$app/navigation';
 
 	let clientOffset;
 	let windowWidth;
@@ -40,7 +41,9 @@
 				<img class="w-[44px]" src={logo} alt="" />
 				<ul class="flex flex-row *:px-[18px] *:py-[28px] *:text-[13px] *:font-[600]">
 					<li class="bg-[#FB342E] text-white">Trang chủ</li>
-					<li class="hover:bg-[#f44842] hover:text-white">Về chúng tôi</li>
+					<li class="hover:bg-[#f44842] hover:text-white">
+						<button on:click={() => goto('/about')}>Về chúng tôi</button>
+					</li>
 					<li class="hover:bg-[#f44842] hover:text-white">Lĩnh vực hoạt động</li>
 					<li class="hover:bg-[#f44842] hover:text-white">Dự án</li>
 					<li class="hover:bg-[#f44842] hover:text-white">Tin tức</li>

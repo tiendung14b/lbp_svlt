@@ -1,6 +1,7 @@
 <script>
 	import '../../app.css';
 	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import PageMarker from '../../lib/components/PageMarker.svelte';
 	// import image
 	import iviewmore_white from '$lib/assets/iviewmore_white.png';
@@ -356,7 +357,10 @@
 				{#each news as newsItem, idx}
 					<div
 						class={cn(
-							'md:p-[16px] lg:border-t-[1px]',
+							'md:pt-4 lg:border-t-[1px]',
+							idx != 0 && 'md:px-4',
+							idx == 0 && 'md:pr-4',
+							idx == news.length - 1 && 'md:pb-0 md:pr-0',
 							idx < news.length - 1 && 'lg:border-r-[1px]'
 						)}
 					>
@@ -528,4 +532,5 @@
 		</div>
 	</div>
 	<!-- footer -->
+	<Footer />
 </div>
