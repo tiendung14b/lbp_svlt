@@ -34,8 +34,9 @@
 			Lịch sử <span class="text-[#FB342E]">hình thành</span>
 		</h2>
 		<!-- timeline box -->
-		<div class="relative max-w-[100%]">
-			<div class="absolute w-[2px] h-full bg-[#FB342E] left-1/2 -z-1"></div>
+		<div class="relative max-w-[100%] pl-28 md:pl-0">
+			<!-- line -->
+			<div class="absolute w-[2px] h-full bg-[#FB342E] left-[40px] md:left-1/2 -z-1"></div>
 			<!-- item of timeline -->
 			{#each data as { time, title, content }, idx}
 				<div
@@ -44,28 +45,33 @@
 						idx % 2 != 0 ? 'md:left-1/2 md:pl-16' : 'md:pr-16'
 					)}
 				>
+					<!-- time marker  -->
 					<div
 						class={cn(
 							'absolute top-1/2 -translate-y-1/2 z-10 flex justify-center items-center size-[80px] rounded-[50%] bg-[#FB342E]',
-							idx % 2 != 0 ? 'md:left-[-40px]' : 'md:right-[-40px]'
+							idx % 2 != 0 ? '-left-28 md:left-[-40px]' : '-left-28 md:left-auto md:right-[-40px]'
 						)}
 					>
 						<span class="text-white text-[16px] font-[600] p-5 text-center">{time}</span>
 					</div>
+					<!-- content -->
 					<div
 						class={cn(
 							'relative p-7 bg-[#F0F3F6] border-[#FB342E]',
-							idx % 2 != 0 ? 'border-l-4' : 'border-r-4'
+							idx % 2 != 0 ? 'border-l-4' : 'border-l-4 md:border-l-0 md:border-r-4'
 						)}
 					>
+						<!-- arrow -->
 						<div
 							class={cn(
 								'absolute top-1/2 -translate-y-1/2 border-y-[15px] border-y-transparent border-[#FB342E] z-50',
-								idx % 2 != 0 ? 'border-r-[15px] -left-[15px]' : 'border-l-[15px] -right-[15px]'
+								idx % 2 != 0
+									? 'border-r-[15px] -left-[15px]'
+									: 'border-r-[15px] -left-[15px] md:left-auto md:border-r-0 md:border-l-[15px] md:-right-[15px]'
 							)}
 						></div>
-						<strong>{title}</strong>
-						<p>{content}</p>
+						<strong class="text-[#141416] text-[16px] font-[600]">{title}</strong>
+						<p class="text-[#777E90] text-[14px] font-[400]">{content}</p>
 					</div>
 				</div>
 			{/each}
