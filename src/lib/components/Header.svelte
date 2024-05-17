@@ -1,5 +1,6 @@
 <script>
 	export let isHome = false;
+	export let currTab = 'home';
 
 	import iclose from '$lib/assets/close.svg';
 	import iopen from '$lib/assets/iopen.png';
@@ -19,7 +20,6 @@
 	import logo from '$lib/assets/logo.png';
 	import isearch from '$lib/assets/isearch.svg';
 	import UILangSwitch from '$lib/ui/UILangSwitch.svelte';
-	import { fade } from 'svelte/transition';
 </script>
 
 <svelte:window bind:scrollY={clientOffset} bind:innerWidth={windowWidth} />
@@ -30,19 +30,48 @@
 			isHome && !stuck
 				? 'absolute left-[50vw] -translate-x-[50%] w-[90%] xl:max-w-[1170px] mt-8'
 				: 'fixed',
-			'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto z-50'
+			'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto z-50',
+			!isHome && 'block relative'
 		)}
 	>
 		<div class={cn('h-[2px] bg-[#FB342E]', 'max-w-[100vw]')}></div>
 		<div class="content">
 			<div
-				class={cn(' flex flex-row justify-between items-center box-border', !stuck && 'px-[20px]')}
+				class={cn('flex flex-row justify-between items-center box-border', !stuck && 'px-[20px]')}
 			>
 				<img class="w-[44px]" src={logo} alt="" />
-				<ul class="flex flex-row *:px-[18px] *:py-[28px] *:text-[13px] *:font-[600]">
-					<li class="bg-[#FB342E] text-white">Trang chủ</li>
-					<li class="hover:bg-[#f44842] hover:text-white">
+				<ul class={cn('flex flex-row *:px-[18px] *:py-[28px] *:text-[13px] *:font-[600]')}>
+					<li
+						class={cn(
+							currTab == 'home'
+								? 'bg-[#FB342E] text-white'
+								: 'bg-white text-black hover:bg-[#f44842] hover:text-white'
+						)}
+					>
+						<button on:click={() => goto('/home')}>Trang chủ</button>
+					</li>
+					<li
+						class={cn(
+							currTab == 'about'
+								? 'bg-[#FB342E] text-white'
+								: 'bg-white text-black hover:bg-[#f44842] hover:text-white'
+						)}
+					>
 						<button on:click={() => goto('/about')}>Về chúng tôi</button>
+						{#if currTab === 'about'}
+							<ul
+								class="absolute flex justify-center w-[100vw] gap-10 bottom-0 left-0 translate-y-[100%] z-50 *:text-[#777E90] *:text-[13px] font-[600] bg-[#F0F3F6] py-4"
+							>
+								<li><a href="#about_intro">Giới thiệu</a></li>
+								<li><a href="#about_td">Thông điệp</a></li>
+								<li><a href="#about_mb">Master Builder</a></li>
+								<li><a href="#about_his">Lịch sử</a></li>
+								<li><a href="#about_mis">Tầm nhìn - Sứ mệnh</a></li>
+								<li><a href="#about_eng">Đội ngũ kỹ sư</a></li>
+								<li><a href="#about_cer">Chứng nhận</a></li>
+								<li><a href="#about_par">Khách hàng - Đối tác</a></li>
+							</ul>
+						{/if}
 					</li>
 					<li class="hover:bg-[#f44842] hover:text-white">Lĩnh vực hoạt động</li>
 					<li class="hover:bg-[#f44842] hover:text-white">Dự án</li>

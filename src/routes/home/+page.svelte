@@ -3,6 +3,8 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import PageMarker from '../../lib/components/PageMarker.svelte';
+	import AboutIntro from '../../lib/components/About/AboutIntro.svelte';
+	import AboutStats from '../../lib/components/About/AboutStats.svelte';
 	// import image
 	import iviewmore_white from '$lib/assets/iviewmore_white.png';
 	import iviewmore from '$lib/assets/iviewmore.png';
@@ -13,10 +15,6 @@
 	import aboutVid from '$lib/assets/aboutVid.gif';
 	import ismaller from '$lib/assets/smaller.svg';
 	import { onDestroy, onMount } from 'svelte';
-	import stat01 from '$lib/assets/stat01.png';
-	import stat02 from '$lib/assets/stat02.png';
-	import stat03 from '$lib/assets/stat03.png';
-	import stat04 from '$lib/assets/stat04.png';
 	import act01 from '$lib/assets/activity01.png';
 	import act02 from '$lib/assets/activity02.png';
 	import careerImg from '$lib/assets/career.png';
@@ -119,7 +117,7 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 <div class="relative overflow-x-hidden">
-	<Header isHome={true} />
+	<Header isHome={true} currTab={'home'} />
 	<!-- ========= hero section ========= -->
 	<div>
 		<div
@@ -179,45 +177,9 @@
 		</div>
 	</div>
 	<!-- === about section === -->
-	<div
-		class="box-border grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 *:h-[505px] min-[500px]:*:h-[405px]"
-	>
-		<img src={aboutVid} alt="about vid" class="object-cover w-[100vw]" />
-		<div
-			class="flex flex-col justify-between px-[20px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url($lib/assets/aboutIsu.png)] bg-cover"
-		>
-			<h2 class="text-[#212163] text-[32px] font-[600]">Về chúng tôi</h2>
-			<p class="max-w-[720px] text-[14px] font-[400] text-[#353945] text-justify">
-				ENCO Industry là doanh nghiệp uy tín hàng đầu miền Bắc trong lĩnh vực xây dựng các công
-				trình nhà xưởng công nghiệp có vốn đầu tư nước ngoài. Thành lập từ năm 2011, ENCO đã trải
-				qua quá trình hoạt động và phát triển gần một thập kỷ với các dự án xây dựng hợp tác cùng
-				Nhật Bản, Trung Quốc, Đài Loan,... Kết hợp với nhiều năm kinh nghiệm làm việc với các tổng
-				thầu lớn của Nhật Bản trước đó, ENCO từ một nhà thầu phụ chuyên nghiệp đã vươn lên trở thành
-				tổng thầu chính cho các dự án nhà xưởng công nghiệp lớn.
-			</p>
-			<div
-				class="max-w-[500px] flex flex-col gap-2 text-center min-[500px]:flex-row justify-between *:bg-[#35368B] *:text-white *:p-4 min-[500px]:*:py-5 min-[500px]:*:px-10 *:text-[16px] *:font-[600] *:uppercase"
-			>
-				<button class="hover:bg-[#FB342E]">TẢI PROFILE</button>
-				<button class="hover:bg-[#FB342E]">TÌM HIỂU THÊM</button>
-			</div>
-		</div>
-	</div>
+	<AboutIntro />
 	<!-- === stats section ===== -->
-	<div class="grid grid-cols-1 md:grid-rows-2 md:grid-cols-2 lg:grid-rows-1 lg:grid-cols-4">
-		{#each [{ image: stat01, num: 15, desc: 'Hơn 15 năm kinh nghiệm' }, { image: stat02, num: 150, desc: 'Đội ngũ hơn 150 con người kinh nghiệm với văn hóa đồng lòng, chính trực, trách nhiệm' }, { image: stat03, num: 500000, desc: 'Hơn 500,000 giờ an toàn' }, { image: stat04, num: 100, desc: 'Hơn 100 dự án đã hoàn thành' }] as stat, idx}
-			<div
-				class={cn(
-					'flex flex-col items-center gap-5 p-16 border-t-[1px]',
-					idx < 3 && 'border-r-[1px] '
-				)}
-			>
-				<img src={stat.image} alt="stat" class="size-[80px]" />
-				<strong class="text-[40px] font-[700] text-[#FB342E]">{stat.num + '+'}</strong>
-				<p class="text-center text-[14px] font-[600]">{stat.desc}</p>
-			</div>
-		{/each}
-	</div>
+	<AboutStats />
 	<!-- === activities section -->
 	<div class="flex flex-col gap-20 bg-[#212163] px-[20px] py-[66px]">
 		<div class="content">
@@ -365,7 +327,11 @@
 						)}
 					>
 						<div class="relative">
-							<img src={newsItem.image} alt="news" class="md:h-[200px] lg:h-[170px] object-cover" />
+							<img
+								src={newsItem.image}
+								alt="news"
+								class="md:h-[200px] w-[100%] lg:h-[170px] object-cover"
+							/>
 							<div
 								class="absolute top-0 left-0 border-r-[21px] border-r-transparent border-t-[21px] border-t-white"
 							></div>
@@ -439,7 +405,7 @@
 		</div>
 	</div>
 	<!-- === client section === -->
-	<div class=" p-[20px] lg:px-[60px] py-[66px]">
+	<div class="p-[20px] lg:px-[60px] py-[66px]">
 		<div class="content grid grid-cols-1 md:grid-cols-2 gap-28">
 			<!-- khach hang -->
 			<div>
