@@ -5,6 +5,8 @@
 	import AboutStats from '../../lib/components/About/AboutStats.svelte';
 	import AboutMessage from '../../lib/components/About/AboutMessage.svelte';
 	import MasterBuilder from '../../lib/components/About/MasterBuilder.svelte';
+	import AboutMis from '../../lib/components/About/AboutMis.svelte';
+	import AboutHis from '../../lib/components/About/AboutHis.svelte';
 	import about_poster from '$lib/assets/about_poster.png';
 </script>
 
@@ -30,4 +32,6 @@
 	<AboutStats />
 	<AboutMessage />
 	<MasterBuilder />
+	<AboutHis />
+	<AboutMis />
 </div>
