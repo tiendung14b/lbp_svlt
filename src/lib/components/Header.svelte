@@ -30,7 +30,7 @@
 			isHome && !stuck
 				? 'absolute left-[50vw] -translate-x-[50%] w-[90%] xl:max-w-[1170px] mt-8'
 				: 'fixed',
-			'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto z-50',
+			'w-[100vw] mx-auto bg-white h-auto top-0 *:mx-auto z-[1000]',
 			!isHome && 'block relative'
 		)}
 	>
@@ -73,7 +73,16 @@
 							</ul>
 						{/if}
 					</li>
-					<li class="hover:bg-[#f44842] hover:text-white">Lĩnh vực hoạt động</li>
+					<li
+						on:click={() => goto('/activity')}
+						class={cn(
+							currTab == 'activity'
+								? 'bg-[#FB342E] text-white'
+								: 'bg-white text-black hover:bg-[#f44842] hover:text-white'
+						)}
+					>
+						Lĩnh vực hoạt động
+					</li>
 					<li class="hover:bg-[#f44842] hover:text-white">Dự án</li>
 					<li class="hover:bg-[#f44842] hover:text-white">Tin tức</li>
 					<li class="hover:bg-[#f44842] hover:text-white">Cơ hội nghề nghiệp</li>
