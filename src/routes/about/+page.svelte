@@ -7,6 +7,10 @@
 	import MasterBuilder from '../../lib/components/About/MasterBuilder.svelte';
 	import AboutMis from '../../lib/components/About/AboutMis.svelte';
 	import AboutHis from '../../lib/components/About/AboutHis.svelte';
+	import AboutLeader from '../../lib/components/About/AboutLeader.svelte';
+	import AboutAbility from '../../lib/components/About/AboutAbility.svelte';
+	import AboutPartner from '../../lib/components/About/AboutPartner.svelte';
+	import Footer from '../../lib/components/Footer.svelte';
 	import about_poster from '$lib/assets/about_poster.png';
 </script>
 
@@ -34,4 +38,8 @@
 	<MasterBuilder />
 	<AboutHis />
 	<AboutMis />
+	<AboutLeader />
+	<AboutAbility />
+	<AboutPartner />
+	<Footer />
 </div>

@@ -6,7 +6,7 @@
 	import about_deco02 from '$lib/assets/about_deco02.svg';
 </script>
 
-<div id="about_his" class="p-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">
+<div id="about_mis" class="p-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">
 	<div class="flex flex-col justify-between md:flex-row content text-white">
 		{#each [{ image: mis01, title: 'Tầm nhìn', content: 'Trở thành doanh nghiệp uy tín hàng đầu trong lĩnh vực xây dựng nhà xưởng công nghiệp tại Việt Nam', deco: mis_deco01 }, { image: mis02, title: 'Sứ mệnh', content: 'Khẳng định với nhà đầu tư nước ngoài về uy tín và chất lượng công trình đạt tiêu chuẩn quốc tế của các tổng thầu xây dựng công nghiệp Việt Nam', deco: mis_deco02 }] as { image, title, content, deco }}
 			<div class="md:w-[49%]">

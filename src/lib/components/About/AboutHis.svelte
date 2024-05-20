@@ -28,7 +28,7 @@
 	];
 </script>
 
-<div id="about_his" class="p-[20px] lg:px-[60px] py-[66px]">
+<div id="about_his" class="p-[20px] lg:px-[60px] pb-[66px]">
 	<div class="content flex flex-col gap-10">
 		<h2 class="text-[40px] font-[600] mx-auto text-[#212163]">
 			Lịch sử <span class="text-[#FB342E]">hình thành</span>
@@ -57,7 +57,7 @@
 					<!-- content -->
 					<div
 						class={cn(
-							'relative p-7 bg-[#F0F3F6] border-[#FB342E]',
+							'relative p-7 bg-[#F0F3F6] border-[#FB342E] hover:bg-[#212163] *:hover:text-white',
 							idx % 2 != 0 ? 'border-l-4' : 'border-l-4 md:border-l-0 md:border-r-4'
 						)}
 					>
@@ -71,7 +71,7 @@
 							)}
 						></div>
 						<strong class="text-[#141416] text-[16px] font-[600]">{title}</strong>
-						<p class="text-[#777E90] text-[14px] font-[400]">{content}</p>
+						<p class="text-[#777E90] text-[14px] font-[400] mt-4">{content}</p>
 					</div>
 				</div>
 			{/each}
