@@ -4,7 +4,7 @@
 </script>
 
 <!-- part01 -->
-<div class="relative px-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">
+<div id="act02" class="relative px-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">
 	<div class="content">
 		<div class="flex items-center">
 			<strong class="text-[#FB342E] text-[90px] font-[600]">02.</strong>

@@ -25,6 +25,8 @@
 
 <svelte:window bind:scrollY={clientOffset} bind:innerWidth={windowWidth} />
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 {#if windowWidth > 1180}
 	<header
 		class={cn(
@@ -43,22 +45,26 @@
 				<img class="w-[44px]" src={logo} alt="" />
 				<ul class={cn('flex flex-row *:px-[18px] *:py-[28px] *:text-[13px] *:font-[600]')}>
 					<li
+						on:click={() => goto('/home')}
 						class={cn(
+							'cursor-pointer',
 							currTab == 'home'
 								? 'bg-[#FB342E] text-white'
 								: 'bg-white text-black hover:bg-[#f44842] hover:text-white'
 						)}
 					>
-						<button on:click={() => goto('/home')}>Trang chủ</button>
+						Trang chủ
 					</li>
 					<li
+						on:click={() => goto('/about')}
 						class={cn(
+							'cursor-pointer',
 							currTab == 'about'
 								? 'bg-[#FB342E] text-white'
 								: 'bg-white text-black hover:bg-[#f44842] hover:text-white'
 						)}
 					>
-						<button on:click={() => goto('/about')}>Về chúng tôi</button>
+						Về chúng tôi
 						{#if currTab === 'about'}
 							<ul
 								class="absolute flex justify-center w-[100vw] gap-10 bottom-0 left-0 translate-y-[100%] z-50 *:text-[#777E90] *:text-[13px] font-[600] bg-[#F0F3F6] py-4"
@@ -77,6 +83,7 @@
 					<li
 						on:click={() => goto('/activity')}
 						class={cn(
+							'cursor-pointer',
 							currTab == 'activity'
 								? 'bg-[#FB342E] text-white'
 								: 'bg-white text-black hover:bg-[#f44842] hover:text-white'
@@ -84,10 +91,16 @@
 					>
 						Lĩnh vực hoạt động
 					</li>
-					<li class="hover:bg-[#f44842] hover:text-white">Dự án</li>
-					<li class="hover:bg-[#f44842] hover:text-white">Tin tức</li>
-					<li class="hover:bg-[#f44842] hover:text-white">Cơ hội nghề nghiệp</li>
-					<li class="hover:bg-[#f44842] hover:text-white">Liên hệ</li>
+					<li class="hover:bg-[#f44842] hover:text-white cursor-pointer"><a href="#!">Dự án</a></li>
+					<li class="hover:bg-[#f44842] hover:text-white cursor-pointer">
+						<a href="#!">Tin tức</a>
+					</li>
+					<li class="hover:bg-[#f44842] hover:text-white cursor-pointer">
+						<a href="#!">Cơ hội nghề nghiệp</a>
+					</li>
+					<li class="hover:bg-[#f44842] hover:text-white cursor-pointer">
+						<a href="#!">Liên hệ</a>
+					</li>
 				</ul>
 				<div class="flex gap-[10px]">
 					<img src={isearch} alt="search icon" />
@@ -100,14 +113,21 @@
 
 {#if windowWidth <= 1180}
 	<!-- BEFORE OPEN -->
-	<button
-		class={cn('fixed z-50 top-[10px] right-4', isOpen && 'hidden')}
-		on:click={() => {
-			isOpen = !isOpen;
-		}}
+	<div
+		class={cn(
+			'fixed top-0 left-0 w-full z-50 flex flex-row items-center h-[70px] px-6 bg-white',
+			isOpen && 'hidden'
+		)}
 	>
-		<img src={iopen} class="w-[40px]" alt="" />
-	</button>
+		<img src={logo} alt="" class="h-[90%] m-auto" />
+		<button
+			on:click={() => {
+				isOpen = !isOpen;
+			}}
+		>
+			<img src={iopen} class="w-[30px]" alt="" />
+		</button>
+	</div>
 	<!-- AFTER OPEN -->
 	<div
 		class={cn(

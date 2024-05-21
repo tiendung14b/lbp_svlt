@@ -3,7 +3,7 @@
 	let activity_intro = '/activity_intro_img.png';
 </script>
 
-<div class="relative px-[20px] lg:px-[60px] py-[66px]">
+<div id="act01" class="relative px-[20px] lg:px-[60px] py-[66px]">
 	<div class="content">
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 			<div>

@@ -13,7 +13,7 @@
 	];
 </script>
 
-<div id="about_par" class="p-[20px] lg:px-[60px] py-[66px]">
+<div class="p-[20px] lg:px-[60px] py-[66px]">
 	<div class="content grid grid-cols-1 md:grid-cols-2 gap-28">
 		<!-- khach hang -->
 		<div>
@@ -46,13 +46,15 @@
 				>
 					{#each Array.from(Array(Math.ceil(clients.length / 6)).keys()) as idx}
 						<swiper-slide>
-							<div class="grid grid-cols-2 sm:grid-cols-3">
-								{#each clients.slice(idx, idx + 6) as client}
-									<div class="bg-white shadow-sm flex justify-center border-[1px] p-2">
-										<img src={client} alt="client" class="aspect-video object-cover" />
-									</div>
-								{/each}
-							</div>
+							<a href="#!">
+								<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+									{#each clients.slice(idx, idx + 6) as client}
+										<div class="bg-white shadow-sm flex justify-center border-[1px] p-2">
+											<img src={client} alt="client" class="aspect-video object-cover" />
+										</div>
+									{/each}
+								</div>
+							</a>
 						</swiper-slide>
 					{/each}
 				</swiper-container>
@@ -86,13 +88,15 @@
 					<swiper-container loop="true" controller-control=".comp_slider" class="mt-8 comp_slider">
 						{#each Array.from(Array(Math.ceil(clients.length / 6)).keys()) as idx}
 							<swiper-slide>
-								<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-									{#each clients.slice(idx, idx + 6) as client}
-										<div class="bg-white shadow-sm flex justify-center border-[1px] p-2">
-											<img src={client} alt="client" class="aspect-video object-cover" />
-										</div>
-									{/each}
-								</div>
+								<a href="#!">
+									<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+										{#each clients.slice(idx, idx + 6) as client}
+											<div class="bg-white shadow-sm flex justify-center border-[1px] p-2">
+												<img src={client} alt="client" class="aspect-video object-cover" />
+											</div>
+										{/each}
+									</div>
+								</a>
 							</swiper-slide>
 						{/each}
 					</swiper-container>

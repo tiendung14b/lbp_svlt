@@ -22,11 +22,13 @@
 		</div>
 		<!-- information part -->
 		<div class="mx-auto flex flex-col divide-y md:border-l-[1px]">
-			{#each [{ label: 'Địa chỉ', content: 'Lô S1, tầng 10 tòa nhà VIWASEEN, số 48 phố Tố Hữu, phường Trung Văn, quận Nam Từ Liêm, thành phố Hà Nội' }, { label: 'Hotline', content: '(84-4) 3562 7566' }, { label: 'Email', content: 'info@enco-industry.com' }] as info}
-				<div class="px-6 py-5">
-					<span class="text-white opacity-70 text-[14px] font-[400]">{info.label}</span>
-					<p class="text-[14px] text-white font-[600] mt-1 max-w-[347px]">{info.content}</p>
-				</div>
+			{#each [{ label: 'Địa chỉ', content: 'Lô S1, tầng 10 tòa nhà VIWASEEN, số 48 phố Tố Hữu, phường Trung Văn, quận Nam Từ Liêm, thành phố Hà Nội', url: null }, { label: 'Hotline', content: '(84-4) 3562 7566', url: 'tel:035627566' }, { label: 'Email', content: 'info@enco-industry.com', url: 'mailto:info@enco-industry.com' }] as info}
+				<a href={info.url}>
+					<div class="px-6 py-5">
+						<span class="text-white opacity-70 text-[14px] font-[400]">{info.label}</span>
+						<p class="text-[14px] text-white font-[600] mt-1 max-w-[347px]">{info.content}</p>
+					</div>
+				</a>
 			{/each}
 		</div>
 		<!-- social media part -->
@@ -47,7 +49,7 @@
 				<div class="flex flex-col lg:flex-row lg:items-center justify-between items-start">
 					<div class="flex gap-4 mt-2">
 						{#each [{ src: izalo, alt: 'Zalo' }, { src: iline, alt: 'Line' }, { src: iwechat, alt: 'Wechat' }, { src: ifacebook, alt: 'Facebook' }, { src: iyoutube, alt: 'Youtube' }] as icon}
-							<img src={icon.src} alt={icon.alt} />
+							<a href="#!"><img src={icon.src} alt={icon.alt} /></a>
 						{/each}
 					</div>
 					<button class=" bg-[#FB342E] rounded-[50%] flex mt-5 rotate-90">

@@ -5,6 +5,7 @@
 	import PageMarker from '../../lib/components/PageMarker.svelte';
 	import AboutIntro from '../../lib/components/About/AboutIntro.svelte';
 	import AboutStats from '../../lib/components/About/AboutStats.svelte';
+	import AboutPartner from '../../lib/components/About/AboutPartner.svelte';
 	// import image
 
 	import { onDestroy, onMount } from 'svelte';
@@ -19,15 +20,6 @@
 	let openQuote = '/openQuote.svg';
 	let closeQuote = '/closeQuote.svg';
 	let viewDetails = '/arrow01.svg';
-	let client01 = '/client01.png';
-	let client02 = '/client02.png';
-	let client03 = '/client03.png';
-	let client04 = '/client04.png';
-	let client05 = '/client05.png';
-	let client06 = '/client06.png';
-	let client07 = '/client07.png';
-	let client08 = '/client08.png';
-	let client09 = '/client09.png';
 	let iviewmore_white = '/iviewmore_white.png';
 	let iviewmore = '/iviewmore.png';
 	let iaddr = '/iaddr.svg';
@@ -90,18 +82,6 @@
 		}
 	];
 
-	let clients = [
-		client01,
-		client02,
-		client03,
-		client04,
-		client05,
-		client06,
-		client07,
-		client08,
-		client09
-	];
-
 	let slideInterval = null;
 
 	onMount(() => {
@@ -135,7 +115,7 @@
 			</p>
 			<div class="flex items-center gap-6 lg:p-0 lg:w-[563px]">
 				<strong class="text-[20px] font-[600]">Xem thêm</strong>
-				<img src={iviewmore_white} alt="" />
+				<a href="#!"><img src={iviewmore_white} alt="" /></a>
 			</div>
 			<div class="lg:flex hidden absolute bottom-[10%] w-[100%]">
 				<PageMarker
@@ -165,7 +145,7 @@
 				document.querySelector('.hero_slide').swiper.slidePrev();
 				currHeroImg = document.querySelector('.hero_slide').swiper.realIndex;
 			}}
-			class="ml-2 lg:block hidden p-[0.5%] bg-slate-500 hover:bg-[#FB342E] transition-all absolute left-0 top-[50vh] -translate-y-[50%]"
+			class="cursor-pointer ml-2 lg:block hidden p-[0.5%] bg-slate-500 hover:bg-[#FB342E] transition-all absolute left-0 top-[50vh] -translate-y-[50%]"
 		>
 			<img src={ismaller} alt="" />
 		</div>
@@ -176,7 +156,7 @@
 				document.querySelector('.hero_slide').swiper.slideNext();
 				currHeroImg = document.querySelector('.hero_slide').swiper.realIndex;
 			}}
-			class="lg:block hidden p-[0.5%] bg-slate-500 hover:bg-[#FB342E] transition-all absolute rotate-180 right-4 top-[50vh] -translate-y-[50%]"
+			class="cursor-pointer lg:block hidden p-[0.5%] bg-slate-500 hover:bg-[#FB342E] transition-all absolute rotate-180 right-4 top-[50vh] -translate-y-[50%]"
 		>
 			<img src={ismaller} alt="" />
 		</div>
@@ -199,14 +179,19 @@
 						src={iviewmore}
 						alt="view more"
 						on:click={() => {
-							throw goto('about');
+							throw goto('activity');
 						}}
 					/>
 				</div>
 			</div>
 			<div class="grid grid-cols-1 lg:grid-cols-2 *:h-[370px] gap-7 mt-8">
-				{#each [{ image: act01, desc: `Tổng thầu Design & Build Xây dựng & Cơ điện` }, { image: act02, desc: `Tổng thầu thi công xây dựng` }] as act, idx}
-					<div class="relative bg-[#35368B] hover:bg-[#FB342E]">
+				{#each [{ image: act01, desc: `Tổng thầu Design & Build Xây dựng & Cơ điện`, url: '/activity/#act01' }, { image: act02, desc: `Tổng thầu thi công xây dựng`, url: '/activity/#act02' }] as act, idx}
+					<div
+						class="relative bg-[#35368B] hover:bg-[#FB342E] cursor-pointer"
+						on:click={() => {
+							throw goto(act.url);
+						}}
+					>
 						<div
 							class="flex flex-col gap-5 absolute z-10 top-5 left-5 min-[500px]:top-12 min-[500px]:left-12"
 						>
@@ -257,7 +242,7 @@
 					</div>
 					<div class="flex items-center gap-6">
 						<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
-						<img src={iviewmore} alt="view more" />
+						<img src={iviewmore} alt="view more" class="cursor-pointer" />
 					</div>
 				</div>
 				<swiper-container
@@ -267,18 +252,20 @@
 				>
 					{#each projects as project}
 						<swiper-slide>
-							<div class=" bg-white shadow-sm">
-								<div class="relative hover:*:opacity-[1]">
-									<img src={project.image} alt="hello" class=" aspect-video object-cover" />
-								</div>
-								<div class="flex flex-col gap-[11px] px-7 py-8">
-									<strong class="text-[32px] font-[600]">{project.title}</strong>
-									<div class="flex items-center gap-2">
-										<img src={iaddr} alt="" />
-										<p class="text-[20px] font-[400] text-[#353945]">{project.addr}</p>
+							<a href="#!">
+								<div class=" bg-white shadow-sm">
+									<div class="relative hover:*:opacity-[1]">
+										<img src={project.image} alt="hello" class=" aspect-video object-cover" />
+									</div>
+									<div class="flex flex-col gap-[11px] px-7 py-8">
+										<strong class="text-[32px] font-[600]">{project.title}</strong>
+										<div class="flex items-center gap-2">
+											<img src={iaddr} alt="" />
+											<p class="text-[20px] font-[400] text-[#353945]">{project.addr}</p>
+										</div>
 									</div>
 								</div>
-							</div>
+							</a>
 						</swiper-slide>
 					{/each}
 				</swiper-container>
@@ -292,23 +279,25 @@
 					</div>
 					<div class="flex items-center gap-6">
 						<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
-						<img src={iviewmore} alt="view more" />
+						<a href="#!"><img src={iviewmore} alt="view more" /></a>
 					</div>
 				</div>
 				<div class="mt-8 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4">
 					{#each [{ image: hero00, title: 'abcxyz', addr: 'lorem lorem lorem' }, { image: hero01, title: 'sheet', addr: 'google docs excel' }, { image: hero02, title: 'sheep', addr: 'farm' }, { image: hero01, title: 'company', addr: 'companycompanycompanycom' }] as project}
-						<div class=" bg-white shadow-sm">
-							<div class="relative hover:*:opacity-[1]">
-								<img src={project.image} alt="hello" class=" aspect-video object-cover" />
-							</div>
-							<div class="flex flex-col gap-[11px] px-5 py-[7px]">
-								<strong class="text-[16px] font-[600]">{project.title}</strong>
-								<div class="flex items-center gap-2">
-									<img src={iaddr} alt="" />
-									<p class="text-[12px] font-[400] text-[#353945]">{project.addr}</p>
+						<a href="#!">
+							<div class=" bg-white shadow-sm">
+								<div class="relative hover:*:opacity-[1]">
+									<img src={project.image} alt="hello" class=" aspect-video object-cover" />
+								</div>
+								<div class="flex flex-col gap-[11px] px-5 py-[7px]">
+									<strong class="text-[16px] font-[600]">{project.title}</strong>
+									<div class="flex items-center gap-2">
+										<img src={iaddr} alt="" />
+										<p class="text-[12px] font-[400] text-[#353945]">{project.addr}</p>
+									</div>
 								</div>
 							</div>
-						</div>
+						</a>
 					{/each}
 				</div>
 			</div>
@@ -324,43 +313,45 @@
 				</div>
 				<div class="flex items-center gap-6">
 					<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
-					<img src={iviewmore} alt="view more" />
+					<a href="#!"><img src={iviewmore} alt="view more" /></a>
 				</div>
 			</div>
 			<div class="grid grid-cols-1 gap-3 md:gap-0 md:grid-cols-2 lg:grid-cols-4 mt-8">
 				{#each news as newsItem, idx}
-					<div
-						class={cn(
-							'md:pt-4 lg:border-t-[1px]',
-							idx != 0 && 'md:px-4',
-							idx == 0 && 'md:pr-4',
-							idx == news.length - 1 && 'md:pb-0 md:pr-0',
-							idx < news.length - 1 && 'lg:border-r-[1px]'
-						)}
-					>
-						<div class="relative">
-							<img
-								src={newsItem.image}
-								alt="news"
-								class="md:h-[200px] w-[100%] lg:h-[170px] object-cover"
-							/>
-							<div
-								class="absolute top-0 left-0 border-r-[21px] border-r-transparent border-t-[21px] border-t-white"
-							></div>
-							<div
-								class="absolute bottom-0 right-0 border-t-[21px] border-t-transparent border-r-[21px] border-r-white"
-							></div>
-						</div>
-						<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px]">
-							<span class="text-[#FB342E] text-[14px] font-[600]">{newsItem.genre}</span>
-							<strong class="text-[#141416] text-[20px] font-[600]">{newsItem.title}</strong>
-							<p class="text-[14px] font-[400]">{newsItem.briefDesc}</p>
-							<div class="flex justify-between items-center">
-								<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
-								<img src={viewDetails} alt="view details" />
+					<a href="#!">
+						<div
+							class={cn(
+								'md:pt-4 lg:border-t-[1px]',
+								idx != 0 && 'md:px-4',
+								idx == 0 && 'md:pr-4',
+								idx == news.length - 1 && 'md:pb-0 md:pr-0',
+								idx < news.length - 1 && 'lg:border-r-[1px]'
+							)}
+						>
+							<div class="relative">
+								<img
+									src={newsItem.image}
+									alt="news"
+									class="md:h-[200px] w-[100%] lg:h-[170px] object-cover"
+								/>
+								<div
+									class="absolute top-0 left-0 border-r-[21px] border-r-transparent border-t-[21px] border-t-white"
+								></div>
+								<div
+									class="absolute bottom-0 right-0 border-t-[21px] border-t-transparent border-r-[21px] border-r-white"
+								></div>
+							</div>
+							<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px]">
+								<span class="text-[#FB342E] text-[14px] font-[600]">{newsItem.genre}</span>
+								<strong class="text-[#141416] text-[20px] font-[600]">{newsItem.title}</strong>
+								<p class="text-[14px] font-[400]">{newsItem.briefDesc}</p>
+								<div class="flex justify-between items-center">
+									<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
+									<img src={viewDetails} alt="view details" />
+								</div>
 							</div>
 						</div>
-					</div>
+					</a>
 				{/each}
 			</div>
 		</div>
@@ -376,7 +367,7 @@
 				</div>
 				<div class="flex items-center gap-6">
 					<span class="text-[20px] font-[600] text-[#777E90]">Xem thêm</span>
-					<img src={iviewmore} alt="view more" />
+					<a href="#!"><img src={iviewmore} alt="view more" /></a>
 				</div>
 			</div>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-20 mt-8 justify-center">
@@ -400,16 +391,18 @@
 					</div>
 					<div class="flex flex-col lg:flex-row gap-8 justify-center items-center">
 						{#each [1, 2] as item, idx}
-							<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px] bg-white">
-								<span class="text-[#FB342E] text-[14px] font-[600]">Chuyên viên / Nhân viên</span>
-								<strong class="text-[#141416] text-[20px] font-[600]"
-									>[Tuyển dụng 2023] Nhân viên kinh doanh làm việc tại Hà Nội</strong
-								>
-								<div class="flex justify-between items-center">
-									<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
-									<img src={viewDetails} alt="view details" />
+							<a href="#!">
+								<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px] bg-white">
+									<span class="text-[#FB342E] text-[14px] font-[600]">Chuyên viên / Nhân viên</span>
+									<strong class="text-[#141416] text-[20px] font-[600]"
+										>[Tuyển dụng 2023] Nhân viên kinh doanh làm việc tại Hà Nội</strong
+									>
+									<div class="flex justify-between items-center">
+										<span class="text-[14px] font-[400] text-[#777E90]">16 / 10 / 2022</span>
+										<img src={viewDetails} alt="view details" />
+									</div>
 								</div>
-							</div>
+							</a>
 						{/each}
 					</div>
 				</div>
@@ -417,98 +410,7 @@
 		</div>
 	</div>
 	<!-- === client section === -->
-	<div class="p-[20px] lg:px-[60px] py-[66px]">
-		<div class="content grid grid-cols-1 md:grid-cols-2 gap-28">
-			<!-- khach hang -->
-			<div>
-				<div class="flex flex-col min-[350px]:flex-row gap-2 justify-between">
-					<h2 class="text-[32px] font-[600] text-[#212163]">Khách hàng</h2>
-					<div class="flex gap-4">
-						<button
-							on:click={() => {
-								document.querySelector('.client_slider').swiper.slidePrev();
-							}}
-							class="bg-[#777E90] hover:bg-[#FB342E] size-[44px] flex justify-center items-center rounded-[50%] transition-all"
-						>
-							<img src={ismaller} alt="" />
-						</button>
-						<button
-							on:click={() => {
-								document.querySelector('.client_slider').swiper.slideNext();
-							}}
-							class="bg-[#777E90] hover:bg-[#FB342E] size-[44px] flex justify-center items-center rounded-[50%] transition-all rotate-180"
-						>
-							<img src={ismaller} alt="" />
-						</button>
-					</div>
-				</div>
-				<div>
-					<swiper-container
-						loop="true"
-						controller-control=".client_slider"
-						class="mt-8 client_slider"
-					>
-						{#each Array.from(Array(Math.ceil(clients.length / 6)).keys()) as idx}
-							<swiper-slide>
-								<div class="grid grid-cols-2 sm:grid-cols-3">
-									{#each clients.slice(idx, idx + 6) as client}
-										<div class="bg-white shadow-sm flex justify-center border-[1px] p-2">
-											<img src={client} alt="client" class="aspect-video object-cover" />
-										</div>
-									{/each}
-								</div>
-							</swiper-slide>
-						{/each}
-					</swiper-container>
-				</div>
-			</div>
-			<!-- doi tac -->
-			<div>
-				<div>
-					<div class="flex flex-col min-[350px]:flex-row gap-2 justify-between">
-						<h2 class="text-[32px] font-[600] text-[#212163]">Đối tác</h2>
-						<div class="flex gap-4">
-							<button
-								on:click={() => {
-									document.querySelector('.comp_slider').swiper.slidePrev();
-								}}
-								class="bg-[#777E90] hover:bg-[#FB342E] size-[44px] flex justify-center items-center rounded-[50%] transition-all"
-							>
-								<img src={ismaller} alt="" />
-							</button>
-							<button
-								on:click={() => {
-									document.querySelector('.comp_slider').swiper.slideNext();
-								}}
-								class="bg-[#777E90] hover:bg-[#FB342E] size-[44px] flex justify-center items-center rounded-[50%] transition-all rotate-180"
-							>
-								<img src={ismaller} alt="" />
-							</button>
-						</div>
-					</div>
-					<div>
-						<swiper-container
-							loop="true"
-							controller-control=".comp_slider"
-							class="mt-8 comp_slider"
-						>
-							{#each Array.from(Array(Math.ceil(clients.length / 6)).keys()) as idx}
-								<swiper-slide>
-									<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-										{#each clients.slice(idx, idx + 6) as client}
-											<div class="bg-white shadow-sm flex justify-center border-[1px] p-2">
-												<img src={client} alt="client" class="aspect-video object-cover" />
-											</div>
-										{/each}
-									</div>
-								</swiper-slide>
-							{/each}
-						</swiper-container>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<AboutPartner />
 	<!-- footer -->
 	<Footer />
 </div>
