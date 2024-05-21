@@ -10,7 +10,7 @@
 
 <div>
 	<Header currTab={'activity'} />
-	<div class="relative min-[1180px]:mt-8">
+	<div class="relative">
 		<img src={activity_poster} class="h-[330px] w-[100vw] object-cover" alt="" />
 		<h1
 			class="absolute top-[50%] -translate-y-1/2 -translate-x-1/2 left-1/2 text-white text-[24px] sm:text-[32px] md:text-[48px] font-[600] capitalize"

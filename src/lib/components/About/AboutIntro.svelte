@@ -6,7 +6,15 @@
 	id="about_intro"
 	class="box-border grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 *:h-[505px] min-[500px]:*:h-[405px]"
 >
-	<img src={aboutVid} alt="about vid" class="object-cover w-[100vw]" />
+	<iframe
+		class="object-cover w-[100vw] h-[100%] lg:h-[405px] lg:w-[100%] lg:object-cover"
+		src="https://www.youtube.com/embed/x2GGTitBy6I"
+		title="THIS IS ELON MUSK MEME ( LONG VERSION ) HD"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		referrerpolicy="strict-origin-when-cross-origin"
+		allowfullscreen
+	></iframe>
 	<div
 		class="flex flex-col justify-between px-[20px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url($lib/assets/aboutIsu.png)] bg-cover"
 	>

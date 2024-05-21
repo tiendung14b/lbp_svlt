@@ -5,7 +5,6 @@
 	import lead04 from '$lib/assets/lead04.png';
 	import lead05 from '$lib/assets/lead05.png';
 	import lead06 from '$lib/assets/lead06.png';
-	import lead07 from '$lib/assets/lead07.png';
 	import ismaller from '$lib/assets/smaller.svg';
 	import { register } from 'swiper/element';
 
@@ -21,8 +20,7 @@
 		{ image: lead03, name: 'Nguyễn Văn C', position: 'Trưởng phòng' },
 		{ image: lead04, name: 'Nguyễn Văn D', position: 'Trưởng phòng' },
 		{ image: lead05, name: 'Nguyễn Văn E', position: 'Trưởng phòng' },
-		{ image: lead06, name: 'Nguyễn Văn F', position: 'Trưởng phòng' },
-		{ image: lead07, name: 'Nguyễn Văn G', position: 'Trưởng phòng' }
+		{ image: lead06, name: 'Nguyễn Văn F', position: 'Trưởng phòng' }
 	];
 </script>
 

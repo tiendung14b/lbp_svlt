@@ -43,15 +43,11 @@
 
 	const heroImgs = [hero00, hero01, hero02];
 	let currHeroImg = 0;
-	let intervalHeroImg = setInterval(() => {
-		currHeroImg = (currHeroImg + 1) % heroImgs.length;
-		if (onChangeHeroImg) onChangeHeroImg();
-	}, 8000);
 	let onChangeHeroImg;
 
 	let projectSlider;
 	let projects = [
-		{ image: hero00, title: 'shit', addr: 'i dont care' },
+		{ image: hero00, title: 'abcxyz', addr: 'KCN Thanh Liêm – Hà Nam' },
 		{ image: hero01, title: 'sheet', addr: 'google docs excel' },
 		{ image: hero02, title: 'sheep', addr: 'farm' }
 	];
@@ -82,7 +78,7 @@
 			date: Date.now().toLocaleString()
 		},
 		{
-			image: aboutVid,
+			image: hero01,
 			genre: 'Tin nội bộ',
 			title: 'Lễ khởi công dự án nhà máy công nghệ bao bì xanh Hiệp Phú',
 			briefDesc:
@@ -103,14 +99,18 @@
 		client09
 	];
 
+	let slideInterval = null;
+
 	onMount(() => {
-		onChangeHeroImg = () => {
-			document.querySelector('#heroCtn').scroll({ left: currHeroImg * windowWidth });
-		};
+		slideInterval = setInterval(() => {
+			document.querySelector('.hero_slide').swiper.slideNext();
+			currHeroImg = (currHeroImg + 1) % heroImgs.length;
+		}, 4000);
 		projectSlider = document.querySelector('.project_slider').swiper;
 	});
+
 	onDestroy(() => {
-		clearInterval(intervalHeroImg);
+		clearInterval(slideInterval);
 	});
 </script>
 
@@ -143,22 +143,24 @@
 				/>
 			</div>
 		</div>
-		<!-- this is bunch of images to slide hihih -->
 		<div
 			id="heroCtn"
 			class="absolute -z-10 left-0 top-0 flex w-[100vw] h-[100vh] overflow-x-auto no-scrollbar"
 		>
-			{#each heroImgs as image}
-				<img src={image} alt="about company" class="shrink-0 object-cover w-[100%]" />
-			{/each}
+			<swiper-container class="hero_slide h-full" controller-control=".hero_slide" loop={true}>
+				{#each heroImgs as image}
+					<swiper-slide>
+						<img src={image} alt="about company" class="shrink-0 object-cover h-full w-[100%]" />
+					</swiper-slide>
+				{/each}
+			</swiper-container>
 		</div>
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
 			on:click={() => {
-				if (currHeroImg == 0) currHeroImg = heroImgs.length;
-				currHeroImg = (currHeroImg - 1) % heroImgs.length;
-				onChangeHeroImg();
+				document.querySelector('.hero_slide').swiper.slidePrev();
+				currHeroImg = document.querySelector('.hero_slide').swiper.realIndex;
 			}}
 			class="ml-2 lg:block hidden p-[0.5%] bg-slate-500 hover:bg-[#FB342E] transition-all absolute left-0 top-[50vh] -translate-y-[50%]"
 		>
@@ -168,8 +170,8 @@
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
 			on:click={() => {
-				currHeroImg = (currHeroImg + 1) % heroImgs.length;
-				onChangeHeroImg();
+				document.querySelector('.hero_slide').swiper.slideNext();
+				currHeroImg = document.querySelector('.hero_slide').swiper.realIndex;
 			}}
 			class="lg:block hidden p-[0.5%] bg-slate-500 hover:bg-[#FB342E] transition-all absolute rotate-180 right-4 top-[50vh] -translate-y-[50%]"
 		>
@@ -284,7 +286,7 @@
 					</div>
 				</div>
 				<div class="mt-8 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4">
-					{#each [{ image: hero00, title: 'shit', addr: 'i dont care' }, { image: hero01, title: 'sheet', addr: 'google docs excel' }, { image: hero02, title: 'sheep', addr: 'farm' }, { image: aboutVid, title: 'tired', addr: 'life' }] as project}
+					{#each [{ image: hero00, title: 'abcxyz', addr: 'lorem lorem lorem' }, { image: hero01, title: 'sheet', addr: 'google docs excel' }, { image: hero02, title: 'sheep', addr: 'farm' }, { image: hero01, title: 'company', addr: 'companycompanycompanycom' }] as project}
 						<div class=" bg-white shadow-sm">
 							<div class="relative hover:*:opacity-[1]">
 								<img src={project.image} alt="hello" class=" aspect-video object-cover" />
