@@ -1,8 +1,8 @@
 <script>
-	import master_builder from '$lib/assets/master_builder.png';
+	let master_builder = '/master_builder.png';
 </script>
 
-<div id="about_mb" class="relative min-h-[100vh] bg-[url($lib/assets/master_builder.png)] bg-cover">
+<div id="about_mb" class="relative min-h-[100vh] bg-[url(/master_builder.png)] bg-cover">
 	<div class="absolute left-1/2 -translate-x-1/2 lg:translate-x-0 top-1/2 -translate-y-1/2">
 		<div class="flex flex-col w-[90vw] lg:max-w-[40vw]">
 			<h2 class="text-[40px] text-white font-[600]">Why Master Builder?</h2>

@@ -5,7 +5,7 @@
 	import ActivityAds from '../../lib/components/Activity/ActivityAds.svelte';
 	import Activity02 from '../../lib/components/Activity/Activity02.svelte';
 	import Footer from '../../lib/components/Footer.svelte';
-	import activity_poster from '$lib/assets/activity_poster.png';
+	let activity_poster = '/activity_poster.png';
 </script>
 
 <div>

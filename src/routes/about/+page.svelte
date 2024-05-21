@@ -11,7 +11,7 @@
 	import AboutAbility from '../../lib/components/About/AboutAbility.svelte';
 	import AboutPartner from '../../lib/components/About/AboutPartner.svelte';
 	import Footer from '../../lib/components/Footer.svelte';
-	import about_poster from '$lib/assets/about_poster.png';
+	let about_poster = '/about_poster.png';
 </script>
 
 <div>

@@ -1,6 +1,6 @@
 <script>
-	import activity_deco from '$lib/assets/activity_deco.svg';
-	import activity_intro from '$lib/assets/activity_intro_img.png';
+	let activity_deco = '/activity_deco.svg';
+	let activity_intro = '/activity_intro_img.png';
 </script>
 
 <div class="relative px-[20px] lg:px-[60px] py-[66px]">

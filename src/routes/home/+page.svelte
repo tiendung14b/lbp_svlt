@@ -6,33 +6,35 @@
 	import AboutIntro from '../../lib/components/About/AboutIntro.svelte';
 	import AboutStats from '../../lib/components/About/AboutStats.svelte';
 	// import image
-	import iviewmore_white from '$lib/assets/iviewmore_white.png';
-	import iviewmore from '$lib/assets/iviewmore.png';
-	import iaddr from '$lib/assets/iaddr.svg';
-	import hero00 from '$lib/assets/hero00.png';
-	import hero01 from '$lib/assets/hero01.jpg';
-	import hero02 from '$lib/assets/hero02.jpg';
-	import aboutVid from '$lib/assets/aboutVid.gif';
-	import ismaller from '$lib/assets/smaller.svg';
+
 	import { onDestroy, onMount } from 'svelte';
-	import act01 from '$lib/assets/activity01.png';
-	import act02 from '$lib/assets/activity02.png';
-	import careerImg from '$lib/assets/career.png';
-	import careerDeco from '$lib/assets/career_deco.svg';
-	import openQuote from '$lib/assets/openQuote.svg';
-	import closeQuote from '$lib/assets/closeQuote.svg';
-	import viewDetails from '$lib/assets/arrow01.svg';
-	import client01 from '$lib/assets/client01.png';
-	import client02 from '$lib/assets/client02.png';
-	import client03 from '$lib/assets/client03.png';
-	import client04 from '$lib/assets/client04.png';
-	import client05 from '$lib/assets/client05.png';
-	import client06 from '$lib/assets/client06.png';
-	import client07 from '$lib/assets/client07.png';
-	import client08 from '$lib/assets/client08.png';
-	import client09 from '$lib/assets/client09.png';
 	import { cn } from '$lib/modules/cn.js';
 	import { register } from 'swiper/element/bundle';
+
+	let act01 = '/activity01.png';
+	let act02 = '/activity02.png';
+	let careerImg = '/career.png';
+	let careerDeco = '/career_deco.svg';
+	let openQuote = '/openQuote.svg';
+	let closeQuote = '/closeQuote.svg';
+	let viewDetails = '/arrow01.svg';
+	let client01 = '/client01.png';
+	let client02 = '/client02.png';
+	let client03 = '/client03.png';
+	let client04 = '/client04.png';
+	let client05 = '/client05.png';
+	let client06 = '/client06.png';
+	let client07 = '/client07.png';
+	let client08 = '/client08.png';
+	let client09 = '/client09.png';
+	let iviewmore_white = '/iviewmore_white.png';
+	let iviewmore = '/iviewmore.png';
+	let iaddr = '/iaddr.svg';
+	let hero00 = '/hero00.png';
+	let hero01 = '/hero01.jpg';
+	let hero02 = '/hero02.jpg';
+	let aboutVid = '/aboutVid.gif';
+	let ismaller = '/smaller.svg';
 
 	register();
 	////// var

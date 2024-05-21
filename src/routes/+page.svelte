@@ -3,17 +3,9 @@
 	// import
 	import UILangSwitch from '$lib/ui/UILangSwitch.svelte';
 	import PageMarker from '../lib/components/PageMarker.svelte';
-	import { theme } from '$lib/stores/theme.js';
 	import '../app.css';
 	import { goto } from '$app/navigation';
 	import { onDestroy } from 'svelte';
-	import logo from '$lib/assets/logo.png';
-	import intro01 from '$lib/assets/intro_page_1.png';
-	import intro01mb from '$lib/assets/intro_page_1mb.png';
-	import intro02 from '$lib/assets/intro_page_2.png';
-	import intro02mb from '$lib/assets/intro_page_2mb.png';
-	import intro03 from '$lib/assets/intro_page_3.png';
-	import intro03mb from '$lib/assets/intro_page_3mb.png';
 	import { cn } from '$lib/modules/cn.js';
 	import { slide } from 'svelte/transition';
 	import { fade } from 'svelte/transition';
@@ -22,9 +14,9 @@
 	const slideData = {
 		idx: 0,
 		data: [
-			{ pc: intro01, mb: intro01mb },
-			{ pc: intro02, mb: intro02mb },
-			{ pc: intro03, mb: intro03mb }
+			{ pc: '/intro_page_1.png', mb: '/intro_page_1mb.png' },
+			{ pc: '/intro_page_2.png', mb: '/intro_page_2mb.png' },
+			{ pc: '/intro_page_3.png', mb: '/intro_page_3mb.png' }
 		]
 	};
 
@@ -46,7 +38,7 @@
 >
 	<UILangSwitch />
 	<div class="w-[100%] flex flex-col items-center gap-[66px]">
-		<img src={logo} alt="" class={cn('object-cover', isMobile ? 'w-[38.9%]' : 'w-[15.8%]')} />
+		<img src="/logo.png" alt="" class={cn('object-cover', isMobile ? 'w-[38.9%]' : 'w-[15.8%]')} />
 		<button
 			on:click={() => {
 				throw goto('/home');

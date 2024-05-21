@@ -1,7 +1,7 @@
 <script>
-	import img01 from '$lib/assets/ability01.png';
-	import img02 from '$lib/assets/ability02.png';
-	import img03 from '$lib/assets/ability03.png';
+	let img01 = '/ability01.png';
+	let img02 = '/ability02.png';
+	let img03 = '/ability03.png';
 	import { cn } from '$lib/modules/cn.js';
 	let slideWidth;
 	let currSlide = 0;
@@ -11,7 +11,7 @@
 
 <div
 	id="about_cer"
-	class="flex flex-col p-[20px] lg:px-[60px] py-[66px] bg-[url($lib/assets/ability.png)] bg-cover"
+	class="flex flex-col p-[20px] lg:px-[60px] py-[66px] bg-[url(/ability.png)] bg-cover"
 >
 	<div class="content">
 		<div class="flex flex-col items-center">

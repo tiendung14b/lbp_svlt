@@ -1,10 +1,10 @@
 <script>
-	import about_ceo from '$lib/assets/about_ceo.png';
-	import about_sign_ceo from '$lib/assets/about_sign_ceo.png';
-	import about_deco from '$lib/assets/about_deco.svg';
+	let about_ceo = '/about_ceo.png';
+	let about_sign_ceo = '/about_sign_ceo.png';
+	let about_deco = '/about_deco.svg';
 </script>
 
-<div id="about_td" class="relative p-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">
+<div id="about_td" class="relative let bg=F0F3F6]">
 	<div class="content grid grid-cols-1 gap-8 lg:gap-0 lg:grid-cols-[65%_35%]">
 		<div class="relative z-20">
 			<h1 class="flex flex-col gap-2 xl:flex-row capitalize text-[#212163] text-[40px] font-[600]">

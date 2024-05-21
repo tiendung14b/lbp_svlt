@@ -1,14 +1,11 @@
 <script>
-	import vie_flag from '$lib/assets/vie_flag.svg';
-	import cn_flag from '$lib/assets/cn_flag.svg';
-	import en_flag from '$lib/assets/en.webp';
 	import { cn } from '$lib/modules/cn.js';
 	import { language } from '$lib/stores/lang';
 	// init var
 	const langData = {
-		vie: { text: 'VIE', img: vie_flag },
-		cn: { text: 'CN', img: cn_flag },
-		en: { text: 'EN', img: en_flag }
+		vie: { text: 'VIE', img: '/vie_flag.svg' },
+		cn: { text: 'CN', img: '/cn_flag.svg' },
+		en: { text: 'EN', img: '/en.webp' }
 	};
 	let currLang = langData.vie;
 	let expand = false;

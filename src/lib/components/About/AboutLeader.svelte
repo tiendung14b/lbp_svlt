@@ -1,11 +1,11 @@
 <script>
-	import lead01 from '$lib/assets/lead01.png';
-	import lead02 from '$lib/assets/lead02.png';
-	import lead03 from '$lib/assets/lead03.png';
-	import lead04 from '$lib/assets/lead04.png';
-	import lead05 from '$lib/assets/lead05.png';
-	import lead06 from '$lib/assets/lead06.png';
-	import ismaller from '$lib/assets/smaller.svg';
+	let lead01 = '/lead01.png';
+	let lead02 = '/lead02.png';
+	let lead03 = '/lead03.png';
+	let lead04 = '/lead04.png';
+	let lead05 = '/lead05.png';
+	let lead06 = '/lead06.png';
+	let ismaller = '/smaller.svg';
 	import { register } from 'swiper/element';
 
 	let clientWidth;
@@ -63,7 +63,7 @@
 						<div class="relative w-[270px] h-[330px]">
 							<img src={image} alt="" class="object-cover" />
 							<div
-								class="absolute bottom-0 left-0 flex flex-col gap-[6px] py-6 pl-7 w-[90%] bg-[url($lib/assets/leader_bg.svg)] bg-[100%] bg-cover text-white"
+								class="absolute bottom-0 left-0 flex flex-col gap-[6px] py-6 pl-7 w-[90%] bg-[url(/leader_bg.svg)] bg-[100%] bg-cover text-white"
 							>
 								<strong class="text-5 font-[600]">{name}</strong>
 								<span class="text-[14px] font-[400]">{position}</span>

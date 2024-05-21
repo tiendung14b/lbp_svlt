@@ -1,9 +1,9 @@
 <script>
-	import mis01 from '$lib/assets/mis01.png';
-	import mis02 from '$lib/assets/mis02.png';
-	import mis_deco01 from '$lib/assets/mis_deco01.svg';
-	import mis_deco02 from '$lib/assets/mis_deco02.svg';
-	import about_deco02 from '$lib/assets/about_deco02.svg';
+	let mis01 = '/mis01.png';
+	let mis02 = '/mis02.png';
+	let mis_deco01 = '/mis_deco01.svg';
+	let mis_deco02 = '/mis_deco02.svg';
+	let about_deco02 = '/about_deco02.svg';
 </script>
 
 <div id="about_mis" class="p-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">

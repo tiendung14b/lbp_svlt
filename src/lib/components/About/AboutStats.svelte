@@ -1,10 +1,10 @@
 <script>
 	import { cn } from '$lib/modules/cn.js';
 
-	import stat01 from '$lib/assets/stat01.png';
-	import stat02 from '$lib/assets/stat02.png';
-	import stat03 from '$lib/assets/stat03.png';
-	import stat04 from '$lib/assets/stat04.png';
+	let stat01 = '/stat01.png';
+	let stat02 = '/stat02.png';
+	let stat03 = '/stat03.png';
+	let stat04 = '/stat04.png';
 </script>
 
 <div id="" class="grid grid-cols-1 md:grid-rows-2 md:grid-cols-2 lg:grid-rows-1 lg:grid-cols-4">

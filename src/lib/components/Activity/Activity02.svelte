@@ -1,6 +1,6 @@
 <script>
-	import activity_part02_poster from '$lib/assets/activity_part02_poster.png';
-	import activity_part02_img from '$lib/assets/activity_part02_img.png';
+	let activity_part02_poster = '/activity_part02_poster.png';
+	let activity_part02_img = '/activity_part02_img.png';
 </script>
 
 <!-- part01 -->

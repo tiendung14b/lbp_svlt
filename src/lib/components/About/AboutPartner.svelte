@@ -1,24 +1,15 @@
 <script>
-	import client01 from '$lib/assets/client01.png';
-	import client02 from '$lib/assets/client02.png';
-	import client03 from '$lib/assets/client03.png';
-	import client04 from '$lib/assets/client04.png';
-	import client05 from '$lib/assets/client05.png';
-	import client06 from '$lib/assets/client06.png';
-	import client07 from '$lib/assets/client07.png';
-	import client08 from '$lib/assets/client08.png';
-	import client09 from '$lib/assets/client09.png';
-	import ismaller from '$lib/assets/smaller.svg';
+	let ismaller = '/smaller.svg';
 	let clients = [
-		client01,
-		client02,
-		client03,
-		client04,
-		client05,
-		client06,
-		client07,
-		client08,
-		client09
+		'/client01.png',
+		'/client02.png',
+		'/client03.png',
+		'/client04.png',
+		'/client05.png',
+		'/client06.png',
+		'/client07.png',
+		'/client08.png',
+		'/client09.png'
 	];
 </script>
 

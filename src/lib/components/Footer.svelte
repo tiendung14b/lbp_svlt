@@ -1,14 +1,14 @@
 <script>
-	import logo from '$lib/assets/logo.png';
-	import qr_zalo from '$lib/assets/qr_zalo.png';
-	import qr_line from '$lib/assets/qr_line.png';
-	import qr_wechat from '$lib/assets/qr_wechat.png';
-	import izalo from '$lib/assets/izalo.svg';
-	import iline from '$lib/assets/iline.svg';
-	import iwechat from '$lib/assets/iwechat.svg';
-	import ifacebook from '$lib/assets/ifacebook.svg';
-	import iyoutube from '$lib/assets/iyoutube.svg';
-	import ismaller from '$lib/assets/smaller.svg';
+	let logo = '/logo.png';
+	let qr_zalo = '/qr_zalo.png';
+	let qr_line = '/qr_line.png';
+	let qr_wechat = '/qr_wechat.png';
+	let izalo = '/izalo.svg';
+	let iline = '/iline.svg';
+	let iwechat = '/iwechat.svg';
+	let ifacebook = '/ifacebook.svg';
+	let iyoutube = '/iyoutube.svg';
+	let ismaller = '/smaller.svg';
 </script>
 
 <footer class="p-[20px] pt-[70px] bg-[#212163]">

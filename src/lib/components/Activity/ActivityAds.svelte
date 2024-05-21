@@ -1,12 +1,12 @@
 <script>
-	import ads01 from '$lib/assets/ads01.svg';
-	import ads02 from '$lib/assets/ads02.svg';
-	import ads03 from '$lib/assets/ads03.svg';
-	import ads04 from '$lib/assets/ads04.svg';
-	import ad_poster from '$lib/assets/ads_poster.png';
-	import ad_poster02 from '$lib/assets/ads_poster02.png';
-	import openQuote from '$lib/assets/openQuote.svg';
-	import closeQuote from '$lib/assets/closeQuote.svg';
+	let ads01 = '/ads01.svg';
+	let ads02 = '/ads02.svg';
+	let ads03 = '/ads03.svg';
+	let ads04 = '/ads04.svg';
+	let ad_poster = '/ads_poster.png';
+	let ad_poster02 = '/ads_poster02.png';
+	let openQuote = '/openQuote.svg';
+	let closeQuote = '/closeQuote.svg';
 
 	let ads = [
 		{

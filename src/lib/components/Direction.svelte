@@ -1,6 +1,6 @@
 <script>
 	export let dir = [];
-	import black_right from '$lib/assets/black_right.svg';
+	let black_right = '/black_right.svg';
 </script>
 
 <div>

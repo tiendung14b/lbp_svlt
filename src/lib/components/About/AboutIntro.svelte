@@ -1,5 +1,5 @@
 <script>
-	import aboutVid from '$lib/assets/aboutVid.gif';
+	let aboutVid = '/aboutVid.gif';
 </script>
 
 <div
@@ -16,7 +16,7 @@
 		allowfullscreen
 	></iframe>
 	<div
-		class="flex flex-col justify-between px-[20px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url($lib/assets/aboutIsu.png)] bg-cover"
+		class="flex flex-col justify-between px-[20px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url(/aboutIsu.png)] bg-cover"
 	>
 		<h2 class="text-[#212163] text-[32px] font-[600]">Về chúng tôi</h2>
 		<p class="max-w-[720px] text-[14px] font-[400] text-[#353945] text-justify">

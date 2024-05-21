@@ -2,8 +2,11 @@
 	export let isHome = false;
 	export let currTab = 'home';
 
-	// import iclose from '$lib/assets/Close.svg';
-	import iopen from '$lib/assets/iopen.png';
+	// import iclose from '/Close.svg';
+	let iopen = '/iopen.png';
+	let logo = '/logo.png';
+	let isearch = '/isearch.svg';
+
 	import { goto } from '$app/navigation';
 
 	let clientOffset;
@@ -17,8 +20,6 @@
 	// import
 	import { cn } from '$lib/modules/cn.js';
 	import '../../app.css';
-	import logo from '$lib/assets/logo.png';
-	import isearch from '$lib/assets/isearch.svg';
 	import UILangSwitch from '$lib/ui/UILangSwitch.svelte';
 </script>
 
