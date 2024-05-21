@@ -33,6 +33,7 @@
 </script>
 
 <div
+	id="#top"
 	bind:clientWidth={screenWidth}
 	class="overflow-hidden bg-transparent relative flex flex-col items-center pt-[22px] pb-[67px] h-[100vh] justify-between"
 >

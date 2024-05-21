@@ -8,7 +8,7 @@
 	let activity_poster = '/activity_poster.png';
 </script>
 
-<div>
+<div id="#top">
 	<Header currTab={'activity'} />
 	<div class="relative">
 		<img src={activity_poster} class="h-[330px] w-[100vw] object-cover" alt="" />

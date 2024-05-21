@@ -50,9 +50,9 @@
 							<img src={icon.src} alt={icon.alt} />
 						{/each}
 					</div>
-					<div class="p-2 bg-[#FB342E] rounded-[50%] flex mt-5 rotate-90">
-						<img src={ismaller} alt="" />
-					</div>
+					<button class=" bg-[#FB342E] rounded-[50%] flex mt-5 rotate-90">
+						<a href="#top" class="p-2"><img src={ismaller} alt="" /></a>
+					</button>
 				</div>
 			</div>
 		</div>

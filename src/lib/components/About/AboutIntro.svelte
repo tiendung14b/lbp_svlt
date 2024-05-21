@@ -1,4 +1,5 @@
 <script>
+	import { goto } from '$app/navigation';
 	let aboutVid = '/aboutVid.gif';
 </script>
 
@@ -31,7 +32,12 @@
 			class="max-w-[500px] flex flex-col gap-2 text-center min-[500px]:flex-row justify-between *:bg-[#35368B] *:text-white *:p-4 min-[500px]:*:py-5 min-[500px]:*:px-10 *:text-[16px] *:font-[600] *:uppercase"
 		>
 			<button class="hover:bg-[#FB342E]">TẢI PROFILE</button>
-			<button class="hover:bg-[#FB342E]">TÌM HIỂU THÊM</button>
+			<button
+				class="hover:bg-[#FB342E]"
+				on:click={() => {
+					throw goto('about');
+				}}>TÌM HIỂU THÊM</button
+			>
 		</div>
 	</div>
 </div>

@@ -14,7 +14,7 @@
 	let about_poster = '/about_poster.png';
 </script>
 
-<div>
+<div id="#top">
 	<Header currTab={'about'} />
 	<!-- main content -->
 	<div class="relative min-[1180px]:mt-8">

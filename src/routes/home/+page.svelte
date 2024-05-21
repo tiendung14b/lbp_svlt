@@ -10,6 +10,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { cn } from '$lib/modules/cn.js';
 	import { register } from 'swiper/element/bundle';
+	import { goto } from '$app/navigation';
 
 	let act01 = '/activity01.png';
 	let act02 = '/activity02.png';
@@ -118,7 +119,7 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<div class="relative overflow-x-hidden">
+<div class="relative overflow-x-hidden" id="#top">
 	<Header isHome={true} currTab={'home'} />
 	<!-- ========= hero section ========= -->
 	<div>
@@ -193,7 +194,14 @@
 				</h2>
 				<div class="flex items-center gap-6">
 					<span class="text-[20px] font-[600] text-white">Xem thêm</span>
-					<img src={iviewmore} alt="view more" />
+					<img
+						class="cursor-pointer"
+						src={iviewmore}
+						alt="view more"
+						on:click={() => {
+							throw goto('about');
+						}}
+					/>
 				</div>
 			</div>
 			<div class="grid grid-cols-1 lg:grid-cols-2 *:h-[370px] gap-7 mt-8">
