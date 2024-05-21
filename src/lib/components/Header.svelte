@@ -2,7 +2,7 @@
 	export let isHome = false;
 	export let currTab = 'home';
 
-	import iclose from '$lib/assets/close.svg';
+	// import iclose from '$lib/assets/Close.svg';
 	import iopen from '$lib/assets/iopen.png';
 	import { goto } from '$app/navigation';
 
@@ -118,7 +118,7 @@
 			on:click={() => {
 				isOpen = !isOpen;
 			}}
-			class="px-[18px] py-[20px]"><img class="w-[30px]" src={iclose} alt="" /></button
+			class="px-[18px] py-[20px]"><img class="w-[30px]" src={iopen} alt="" /></button
 		>
 		<ul
 			class="flex flex-col *:px-[18px] *:py-[24px] *:text-[13px] *:font-[600] *:transition-all *:duration-100"
