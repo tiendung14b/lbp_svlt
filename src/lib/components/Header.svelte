@@ -6,6 +6,7 @@
 	let iopen = '/iopen.png';
 	let logo = '/logo.png';
 	let isearch = '/isearch.svg';
+	let isProjectDropdownOpen = false;
 
 	import { goto } from '$app/navigation';
 
@@ -21,10 +22,13 @@
 	import { cn } from '$lib/modules/cn.js';
 	import '../../app.css';
 	import UILangSwitch from '$lib/ui/UILangSwitch.svelte';
+	import ProjectDropdown from './ProjectDropdown.svelte';
 </script>
 
 <svelte:window bind:scrollY={clientOffset} bind:innerWidth={windowWidth} />
 
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 {#if windowWidth > 1180}
 	<header
 		class={cn(
@@ -89,7 +93,17 @@
 					>
 						Lĩnh vực hoạt động
 					</li>
-					<li class="hover:bg-[#f44842] hover:text-white cursor-pointer"><a href="#!">Dự án</a></li>
+					<li
+						class="hover:bg-[#f44842] hover:text-white cursor-pointer"
+						on:mouseenter={() => {
+							isProjectDropdownOpen = !isProjectDropdownOpen;
+						}}
+						on:mouseleave={() => {
+							isProjectDropdownOpen = !isProjectDropdownOpen;
+						}}
+					>
+						<a href="#!">Dự án</a>
+					</li>
 					<li class="hover:bg-[#f44842] hover:text-white cursor-pointer">
 						<a href="#!">Tin tức</a>
 					</li>
@@ -106,6 +120,9 @@
 				</div>
 			</div>
 		</div>
+		{#if isProjectDropdownOpen}
+			<ProjectDropdown />
+		{/if}
 	</header>
 {/if}
 

@@ -133,10 +133,10 @@
 			id="heroCtn"
 			class="absolute -z-10 left-0 top-0 flex w-[100vw] h-[100vh] overflow-x-auto no-scrollbar"
 		>
-			<swiper-container class="hero_slide h-full" controller-control=".hero_slide" loop={true}>
+			<swiper-container class="hero_slide" controller-control=".hero_slide">
 				{#each heroImgs as image}
 					<swiper-slide>
-						<img src={image} alt="about company" class="shrink-0 object-cover h-full w-[100%]" />
+						<img src={image} alt="about company" class={`shrink-0 object-cover h-full w-full`} />
 					</swiper-slide>
 				{/each}
 			</swiper-container>
@@ -181,7 +181,6 @@
 				</h2>
 				<div class="flex items-center gap-6">
 					<span class="text-[20px] font-[600] text-white">Xem thêm</span>
-
 					<img
 						class="cursor-pointer"
 						src={iviewmore}

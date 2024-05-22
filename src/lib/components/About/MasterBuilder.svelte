@@ -4,7 +4,7 @@
 
 <div
 	id="about_mb"
-	class="relative box-content min-h-[100vh] bg-[url(/master_builder.png)] bg-cover md:p-8"
+	class="relative box-content min-h-[100vh] bg-[url(/master_builder.png)] bg-cover md:py-32"
 >
 	<div class="absolute left-1/2 -translate-x-1/2 lg:translate-x-0 top-1/2 -translate-y-1/2">
 		<div class="flex flex-col w-[90vw] lg:max-w-[40vw]">

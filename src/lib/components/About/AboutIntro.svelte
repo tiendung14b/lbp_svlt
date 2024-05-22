@@ -29,7 +29,7 @@
 			</p>
 			{#if isHome}
 				<div
-					class="flex flex-col gap-4 items-center *:w-[90%] text-center min-[500px]:flex-row justify-between *:bg-[#35368B] *:text-white *:py-4 min-[500px]:*:py-5 min-[500px]:*:px-10 *:text-[16px] *:font-[600] *:uppercase"
+					class="flex flex-col gap-4 items-center *:w-[90%] text-center min-[500px]:flex-row justify-between *:bg-[#35368B] *:text-white *:py-4 min-[500px]:*:py-5 *:text-[16px] *:font-[600] *:uppercase"
 				>
 					<button class="hover:bg-[#FB342E]">TẢI PROFILE</button>
 					<button
