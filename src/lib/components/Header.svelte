@@ -25,8 +25,6 @@
 
 <svelte:window bind:scrollY={clientOffset} bind:innerWidth={windowWidth} />
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 {#if windowWidth > 1180}
 	<header
 		class={cn(
@@ -111,6 +109,10 @@
 	</header>
 {/if}
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 {#if windowWidth <= 1180}
 	<!-- BEFORE OPEN -->
 	<div
@@ -144,9 +146,30 @@
 		<ul
 			class="flex flex-col *:px-[18px] *:py-[24px] *:text-[13px] *:font-[600] *:transition-all *:duration-100"
 		>
-			<li class="bg-[#FB342E] text-white">Trang chủ</li>
-			<li class="hover:bg-[#f44842] hover:text-white">Về chúng tôi</li>
-			<li class="hover:bg-[#f44842] hover:text-white">Lĩnh vực hoạt động</li>
+			<li
+				class="hover:bg-[#f44842] hover:text-white"
+				on:click={() => {
+					throw goto('home');
+				}}
+			>
+				Trang chủ
+			</li>
+			<li
+				class="hover:bg-[#f44842] hover:text-white"
+				on:click={() => {
+					throw goto('about');
+				}}
+			>
+				Về chúng tôi
+			</li>
+			<li
+				class="hover:bg-[#f44842] hover:text-white"
+				on:click={() => {
+					goto('activity');
+				}}
+			>
+				Lĩnh vực hoạt động
+			</li>
 			<li class="hover:bg-[#f44842] hover:text-white">Dự án</li>
 			<li class="hover:bg-[#f44842] hover:text-white">Tin tức</li>
 			<li class="hover:bg-[#f44842] hover:text-white">Cơ hội nghề nghiệp</li>

@@ -3,16 +3,13 @@
 	let activity_intro = '/activity_intro_img.png';
 </script>
 
-<div id="act01" class="relative px-[20px] lg:px-[60px] py-[66px]">
-	<div class="content">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			<div>
-				<img src={activity_intro} alt="" class="w-[100%] object-cover" />
-			</div>
+<div id="act01" class="relative lg:h-[50vh] px-[20px] lg:px-[60px] py-[66px]">
+	<div class="lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:left-1/2 content">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 			<div>
 				<div class="flex">
 					<strong class="text-[#FB342E] text-[90px] font-[600]">01.</strong>
-					<h2 class="text-[32px] font-[600] text-[#212163] max-w-[289px]">
+					<h2 class="text-[32px] font-[600] text-[#212163] max-w-[300px]">
 						Tổng Thầu Design & Build Xây Dựng & Cơ Điện
 					</h2>
 				</div>
@@ -29,8 +26,8 @@
 		</div>
 	</div>
 	<img
-		src={activity_deco}
+		src="/act01.png"
 		alt=""
-		class="absolute object-cover object-right w-[40%] h-full top-0 left-0 -z-10 hidden md:block"
+		class="absolute top-0 left-0 h-[100%] object-cover hidden lg:block"
 	/>
 </div>

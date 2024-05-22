@@ -165,7 +165,11 @@
 		</div>
 	</div>
 	<!-- === about section === -->
-	<AboutIntro />
+	<AboutIntro
+		title={'Về Chúng Tôi'}
+		isHome={true}
+		content={'ENCO Industry là doanh nghiệp uy tín hàng đầu miền Bắc trong lĩnh vực xây dựng các công trình nhà xưởng công nghiệp có vốn đầu tư nước ngoài. Thành lập từ năm 2011, ENCO đã trải qua quá trình hoạt động và phát triển gần một thập kỷ với các dự án xây dựng hợp tác cùng Nhật Bản, Trung Quốc, Đài Loan,... Kết hợp với nhiều năm kinh nghiệm làm việc với các tổng thầu lớn của Nhật Bản trước đó, ENCO từ một nhà thầu phụ chuyên nghiệp đã vươn lên trở thành tổng thầu chính cho các dự án nhà xưởng công nghiệp lớn.'}
+	/>
 	<!-- === stats section ===== -->
 	<AboutStats />
 	<!-- === activities section -->

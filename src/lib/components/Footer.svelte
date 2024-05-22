@@ -21,7 +21,7 @@
 			</p>
 		</div>
 		<!-- information part -->
-		<div class="mx-auto flex flex-col divide-y md:border-l-[1px]">
+		<div class="mx-auto flex flex-col divide-y md:border-l-[1px] border-[#ccc8]">
 			{#each [{ label: 'Địa chỉ', content: 'Lô S1, tầng 10 tòa nhà VIWASEEN, số 48 phố Tố Hữu, phường Trung Văn, quận Nam Từ Liêm, thành phố Hà Nội', url: null }, { label: 'Hotline', content: '(84-4) 3562 7566', url: 'tel:035627566' }, { label: 'Email', content: 'info@enco-industry.com', url: 'mailto:info@enco-industry.com' }] as info}
 				<a href={info.url}>
 					<div class="px-6 py-5">

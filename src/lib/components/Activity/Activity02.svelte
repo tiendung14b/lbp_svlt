@@ -4,7 +4,7 @@
 </script>
 
 <!-- part01 -->
-<div id="act02" class="relative px-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">
+<div id="act02" class="relative min-h-[50vh] px-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">
 	<div class="content">
 		<div class="flex items-center">
 			<strong class="text-[#FB342E] text-[90px] font-[600]">02.</strong>
@@ -37,7 +37,7 @@
 </div>
 
 <!-- part02 -->
-<div class="relative px-[20px] lg:px-[60px] py-[66px] bg-[#F0F3F6]">
+<div class="relative px-[20px] lg:px-[60px] py-[66px]">
 	<div class="content grid grid-cols-1 md:grid-cols-2 items-center gap-8">
 		<img src={activity_part02_img} alt="" class="w-[100%]" />
 		<div class="flex flex-col gap-7 ml-auto">

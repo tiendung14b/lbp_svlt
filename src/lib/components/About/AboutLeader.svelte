@@ -56,7 +56,7 @@
 				</button>
 			</div>
 		</div>
-		<div bind:clientWidth class="mt-8">
+		<div bind:clientWidth class="mt-8 min-w-[100vw]">
 			<swiper-container loop={true} slides-per-view={numSlides}>
 				{#each leaders as { image, name, position }}
 					<swiper-slide>
