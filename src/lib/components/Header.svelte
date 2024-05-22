@@ -103,6 +103,9 @@
 						}}
 					>
 						<a href="#!">Dự án</a>
+						{#if isProjectDropdownOpen}
+							<ProjectDropdown />
+						{/if}
 					</li>
 					<li class="hover:bg-[#f44842] hover:text-white cursor-pointer">
 						<a href="#!">Tin tức</a>
@@ -120,9 +123,6 @@
 				</div>
 			</div>
 		</div>
-		{#if isProjectDropdownOpen}
-			<ProjectDropdown />
-		{/if}
 	</header>
 {/if}
 
