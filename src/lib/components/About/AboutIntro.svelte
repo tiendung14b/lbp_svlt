@@ -17,27 +17,29 @@
 		allowfullscreen
 	></iframe>
 	<div
-		class="flex flex-col justify-between px-[20px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url(/aboutIsu.png)] bg-cover"
+		class="px-[20px] lg:px-[60px] min-[1200px]:px-[100px] py-[46px] bg-[url(/aboutIsu.png)] bg-cover"
 	>
-		<h2 class="text-[#212163] text-[32px] font-[600]">Về chúng tôi</h2>
-		<p class="max-w-[720px] text-[14px] font-[400] text-[#353945] text-justify">
-			ENCO Industry là doanh nghiệp uy tín hàng đầu miền Bắc trong lĩnh vực xây dựng các công trình
-			nhà xưởng công nghiệp có vốn đầu tư nước ngoài. Thành lập từ năm 2011, ENCO đã trải qua quá
-			trình hoạt động và phát triển gần một thập kỷ với các dự án xây dựng hợp tác cùng Nhật Bản,
-			Trung Quốc, Đài Loan,... Kết hợp với nhiều năm kinh nghiệm làm việc với các tổng thầu lớn của
-			Nhật Bản trước đó, ENCO từ một nhà thầu phụ chuyên nghiệp đã vươn lên trở thành tổng thầu
-			chính cho các dự án nhà xưởng công nghiệp lớn.
-		</p>
-		<div
-			class="max-w-[500px] flex flex-col gap-2 text-center min-[500px]:flex-row justify-between *:bg-[#35368B] *:text-white *:p-4 min-[500px]:*:py-5 min-[500px]:*:px-10 *:text-[16px] *:font-[600] *:uppercase"
-		>
-			<button class="hover:bg-[#FB342E]">TẢI PROFILE</button>
-			<button
-				class="hover:bg-[#FB342E]"
-				on:click={() => {
-					throw goto('about');
-				}}>TÌM HIỂU THÊM</button
+		<div class="flex flex-col gap-y-4 justify-between max-w-[720px]">
+			<h2 class="text-[#212163] text-[32px] font-[600]">Về chúng tôi</h2>
+			<p class=" text-[14px] font-[400] text-[#353945] text-justify">
+				ENCO Industry là doanh nghiệp uy tín hàng đầu miền Bắc trong lĩnh vực xây dựng các công
+				trình nhà xưởng công nghiệp có vốn đầu tư nước ngoài. Thành lập từ năm 2011, ENCO đã trải
+				qua quá trình hoạt động và phát triển gần một thập kỷ với các dự án xây dựng hợp tác cùng
+				Nhật Bản, Trung Quốc, Đài Loan,... Kết hợp với nhiều năm kinh nghiệm làm việc với các tổng
+				thầu lớn của Nhật Bản trước đó, ENCO từ một nhà thầu phụ chuyên nghiệp đã vươn lên trở thành
+				tổng thầu chính cho các dự án nhà xưởng công nghiệp lớn.
+			</p>
+			<div
+				class="flex flex-col gap-4 items-center *:w-[90%] text-center min-[500px]:flex-row justify-between *:bg-[#35368B] *:text-white *:py-4 min-[500px]:*:py-5 min-[500px]:*:px-10 *:text-[16px] *:font-[600] *:uppercase"
 			>
+				<button class="hover:bg-[#FB342E]">TẢI PROFILE</button>
+				<button
+					class="hover:bg-[#FB342E]"
+					on:click={() => {
+						throw goto('about');
+					}}>TÌM HIỂU THÊM</button
+				>
+			</div>
 		</div>
 	</div>
 </div>

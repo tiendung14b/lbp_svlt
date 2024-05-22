@@ -99,6 +99,9 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <div class="relative overflow-x-hidden" id="#top">
 	<Header isHome={true} currTab={'home'} />
 	<!-- ========= hero section ========= -->
@@ -174,6 +177,7 @@
 				</h2>
 				<div class="flex items-center gap-6">
 					<span class="text-[20px] font-[600] text-white">Xem thêm</span>
+
 					<img
 						class="cursor-pointer"
 						src={iviewmore}
@@ -184,7 +188,7 @@
 					/>
 				</div>
 			</div>
-			<div class="grid grid-cols-1 lg:grid-cols-2 *:h-[370px] gap-7 mt-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 *:h-[280px] sm:*:h-[370px] gap-7 mt-8">
 				{#each [{ image: act01, desc: `Tổng thầu Design & Build Xây dựng & Cơ điện`, url: '/activity/#act01' }, { image: act02, desc: `Tổng thầu thi công xây dựng`, url: '/activity/#act02' }] as act, idx}
 					<div
 						class="relative bg-[#35368B] hover:bg-[#FB342E] cursor-pointer"
@@ -200,12 +204,12 @@
 								<span class="text-[20px] font-[600] text-white">{'0' + (idx + 1) + '.'}</span>
 							</div>
 							<p
-								class="text-[26px] min-[500px]:text-[26px] font-[600] underline text-white max-w-[200px] min-[500px]:max-w-[240px]"
+								class="text-[20px] sm:text-[26px] font-[600] underline text-white max-w-[200px] min-[500px]:max-w-[240px]"
 							>
 								{act.desc}
 							</p>
 						</div>
-						<img src={act.image} alt="" class="absolute h-[60%] bottom-0 right-0 md:h-[100%]" />
+						<img src={act.image} alt="" class="absolute bottom-0 right-0 h-full" />
 					</div>
 				{/each}
 			</div>
@@ -392,7 +396,7 @@
 					<div class="flex flex-col lg:flex-row gap-8 justify-center items-center">
 						{#each [1, 2] as item, idx}
 							<a href="#!">
-								<div class="flex flex-col gap-4 py-2 px-2 md:max-w-[350px] bg-white">
+								<div class="flex flex-col gap-4 p-4 md:max-w-[350px] bg-white">
 									<span class="text-[#FB342E] text-[14px] font-[600]">Chuyên viên / Nhân viên</span>
 									<strong class="text-[#141416] text-[20px] font-[600]"
 										>[Tuyển dụng 2023] Nhân viên kinh doanh làm việc tại Hà Nội</strong
